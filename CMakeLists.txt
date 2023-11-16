@@ -12,9 +12,7 @@ add_executable(
         src/utils.cpp src/utils.h
         src/generated/fileformat.pb.cc src/generated/fileformat.pb.h
         src/generated/osmformat.pb.cc src/generated/osmformat.pb.h
-        src/utils.h
-        src/parser.cpp
-        src/parser.h
+        src/parser.cpp src/parser.h
 )
 target_link_libraries(osm ZLIB::ZLIB)
 target_link_libraries(osm protobuf::libprotobuf)

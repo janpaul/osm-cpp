@@ -30,8 +30,11 @@
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
 #include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/message.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/generated_enum_reflection.h"
+#include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -53,15 +56,3183 @@ struct TableStruct_osmformat_2eproto {
 };
 extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_osmformat_2eproto;
+class ChangeSet;
+struct ChangeSetDefaultTypeInternal;
+extern ChangeSetDefaultTypeInternal _ChangeSet_default_instance_;
+class DenseInfo;
+struct DenseInfoDefaultTypeInternal;
+extern DenseInfoDefaultTypeInternal _DenseInfo_default_instance_;
+class DenseNodes;
+struct DenseNodesDefaultTypeInternal;
+extern DenseNodesDefaultTypeInternal _DenseNodes_default_instance_;
+class HeaderBBox;
+struct HeaderBBoxDefaultTypeInternal;
+extern HeaderBBoxDefaultTypeInternal _HeaderBBox_default_instance_;
+class HeaderBlock;
+struct HeaderBlockDefaultTypeInternal;
+extern HeaderBlockDefaultTypeInternal _HeaderBlock_default_instance_;
+class Info;
+struct InfoDefaultTypeInternal;
+extern InfoDefaultTypeInternal _Info_default_instance_;
+class Node;
+struct NodeDefaultTypeInternal;
+extern NodeDefaultTypeInternal _Node_default_instance_;
+class PrimitiveBlock;
+struct PrimitiveBlockDefaultTypeInternal;
+extern PrimitiveBlockDefaultTypeInternal _PrimitiveBlock_default_instance_;
+class PrimitiveGroup;
+struct PrimitiveGroupDefaultTypeInternal;
+extern PrimitiveGroupDefaultTypeInternal _PrimitiveGroup_default_instance_;
+class Relation;
+struct RelationDefaultTypeInternal;
+extern RelationDefaultTypeInternal _Relation_default_instance_;
+class StringTable;
+struct StringTableDefaultTypeInternal;
+extern StringTableDefaultTypeInternal _StringTable_default_instance_;
+class Way;
+struct WayDefaultTypeInternal;
+extern WayDefaultTypeInternal _Way_default_instance_;
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
 }  // namespace google
 
+enum Relation_MemberType : int {
+  Relation_MemberType_NODE = 0,
+  Relation_MemberType_WAY = 1,
+  Relation_MemberType_RELATION = 2,
+};
+
+bool Relation_MemberType_IsValid(int value);
+extern const uint32_t Relation_MemberType_internal_data_[];
+constexpr Relation_MemberType Relation_MemberType_MemberType_MIN = static_cast<Relation_MemberType>(0);
+constexpr Relation_MemberType Relation_MemberType_MemberType_MAX = static_cast<Relation_MemberType>(2);
+constexpr int Relation_MemberType_MemberType_ARRAYSIZE = 2 + 1;
+const ::google::protobuf::EnumDescriptor*
+Relation_MemberType_descriptor();
+template <typename T>
+const std::string& Relation_MemberType_Name(T value) {
+  static_assert(std::is_same<T, Relation_MemberType>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to MemberType_Name().");
+  return Relation_MemberType_Name(static_cast<Relation_MemberType>(value));
+}
+template <>
+inline const std::string& Relation_MemberType_Name(Relation_MemberType value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<Relation_MemberType_descriptor,
+                                                 0, 2>(
+      static_cast<int>(value));
+}
+inline bool Relation_MemberType_Parse(absl::string_view name, Relation_MemberType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Relation_MemberType>(
+      Relation_MemberType_descriptor(), name, value);
+}
 
 // ===================================================================
 
 
+// -------------------------------------------------------------------
+
+class StringTable final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:StringTable) */ {
+ public:
+  inline StringTable() : StringTable(nullptr) {}
+  ~StringTable() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR StringTable(::google::protobuf::internal::ConstantInitialized);
+
+  inline StringTable(const StringTable& from)
+      : StringTable(nullptr, from) {}
+  StringTable(StringTable&& from) noexcept
+    : StringTable() {
+    *this = ::std::move(from);
+  }
+
+  inline StringTable& operator=(const StringTable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StringTable& operator=(StringTable&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StringTable& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StringTable* internal_default_instance() {
+    return reinterpret_cast<const StringTable*>(
+               &_StringTable_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(StringTable& a, StringTable& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StringTable* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StringTable* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StringTable* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StringTable>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StringTable& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const StringTable& from) {
+    StringTable::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(StringTable* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "StringTable";
+  }
+  protected:
+  explicit StringTable(::google::protobuf::Arena* arena);
+  StringTable(::google::protobuf::Arena* arena, const StringTable& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSFieldNumber = 1,
+  };
+  // repeated bytes s = 1;
+  int s_size() const;
+  private:
+  int _internal_s_size() const;
+
+  public:
+  void clear_s() ;
+  const std::string& s(int index) const;
+  std::string* mutable_s(int index);
+  void set_s(int index, const std::string& value);
+  void set_s(int index, std::string&& value);
+  void set_s(int index, const char* value);
+  void set_s(int index, const void* value, std::size_t size);
+  void set_s(int index, absl::string_view value);
+  std::string* add_s();
+  void add_s(const std::string& value);
+  void add_s(std::string&& value);
+  void add_s(const char* value);
+  void add_s(const void* value, std::size_t size);
+  void add_s(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& s() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_s();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_s() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_s();
+
+  public:
+  // @@protoc_insertion_point(class_scope:StringTable)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedPtrField<std::string> s_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class Info final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Info) */ {
+ public:
+  inline Info() : Info(nullptr) {}
+  ~Info() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR Info(::google::protobuf::internal::ConstantInitialized);
+
+  inline Info(const Info& from)
+      : Info(nullptr, from) {}
+  Info(Info&& from) noexcept
+    : Info() {
+    *this = ::std::move(from);
+  }
+
+  inline Info& operator=(const Info& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Info& operator=(Info&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Info& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Info* internal_default_instance() {
+    return reinterpret_cast<const Info*>(
+               &_Info_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(Info& a, Info& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Info* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Info* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Info* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Info>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Info& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const Info& from) {
+    Info::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Info* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "Info";
+  }
+  protected:
+  explicit Info(::google::protobuf::Arena* arena);
+  Info(::google::protobuf::Arena* arena, const Info& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChangesetFieldNumber = 3,
+    kTimestampFieldNumber = 2,
+    kUidFieldNumber = 4,
+    kUserSidFieldNumber = 5,
+    kVisibleFieldNumber = 6,
+    kVersionFieldNumber = 1,
+  };
+  // optional int64 changeset = 3;
+  bool has_changeset() const;
+  void clear_changeset() ;
+  ::int64_t changeset() const;
+  void set_changeset(::int64_t value);
+
+  private:
+  ::int64_t _internal_changeset() const;
+  void _internal_set_changeset(::int64_t value);
+
+  public:
+  // optional int32 timestamp = 2;
+  bool has_timestamp() const;
+  void clear_timestamp() ;
+  ::int32_t timestamp() const;
+  void set_timestamp(::int32_t value);
+
+  private:
+  ::int32_t _internal_timestamp() const;
+  void _internal_set_timestamp(::int32_t value);
+
+  public:
+  // optional int32 uid = 4;
+  bool has_uid() const;
+  void clear_uid() ;
+  ::int32_t uid() const;
+  void set_uid(::int32_t value);
+
+  private:
+  ::int32_t _internal_uid() const;
+  void _internal_set_uid(::int32_t value);
+
+  public:
+  // optional int32 user_sid = 5;
+  bool has_user_sid() const;
+  void clear_user_sid() ;
+  ::int32_t user_sid() const;
+  void set_user_sid(::int32_t value);
+
+  private:
+  ::int32_t _internal_user_sid() const;
+  void _internal_set_user_sid(::int32_t value);
+
+  public:
+  // optional bool visible = 6;
+  bool has_visible() const;
+  void clear_visible() ;
+  bool visible() const;
+  void set_visible(bool value);
+
+  private:
+  bool _internal_visible() const;
+  void _internal_set_visible(bool value);
+
+  public:
+  // optional int32 version = 1 [default = -1];
+  bool has_version() const;
+  void clear_version() ;
+  ::int32_t version() const;
+  void set_version(::int32_t value);
+
+  private:
+  ::int32_t _internal_version() const;
+  void _internal_set_version(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:Info)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int64_t changeset_;
+    ::int32_t timestamp_;
+    ::int32_t uid_;
+    ::int32_t user_sid_;
+    bool visible_;
+    ::int32_t version_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class HeaderBBox final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HeaderBBox) */ {
+ public:
+  inline HeaderBBox() : HeaderBBox(nullptr) {}
+  ~HeaderBBox() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR HeaderBBox(::google::protobuf::internal::ConstantInitialized);
+
+  inline HeaderBBox(const HeaderBBox& from)
+      : HeaderBBox(nullptr, from) {}
+  HeaderBBox(HeaderBBox&& from) noexcept
+    : HeaderBBox() {
+    *this = ::std::move(from);
+  }
+
+  inline HeaderBBox& operator=(const HeaderBBox& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HeaderBBox& operator=(HeaderBBox&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const HeaderBBox& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HeaderBBox* internal_default_instance() {
+    return reinterpret_cast<const HeaderBBox*>(
+               &_HeaderBBox_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(HeaderBBox& a, HeaderBBox& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HeaderBBox* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HeaderBBox* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  HeaderBBox* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<HeaderBBox>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const HeaderBBox& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const HeaderBBox& from) {
+    HeaderBBox::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(HeaderBBox* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "HeaderBBox";
+  }
+  protected:
+  explicit HeaderBBox(::google::protobuf::Arena* arena);
+  HeaderBBox(::google::protobuf::Arena* arena, const HeaderBBox& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeftFieldNumber = 1,
+    kRightFieldNumber = 2,
+    kTopFieldNumber = 3,
+    kBottomFieldNumber = 4,
+  };
+  // required sint64 left = 1;
+  bool has_left() const;
+  void clear_left() ;
+  ::int64_t left() const;
+  void set_left(::int64_t value);
+
+  private:
+  ::int64_t _internal_left() const;
+  void _internal_set_left(::int64_t value);
+
+  public:
+  // required sint64 right = 2;
+  bool has_right() const;
+  void clear_right() ;
+  ::int64_t right() const;
+  void set_right(::int64_t value);
+
+  private:
+  ::int64_t _internal_right() const;
+  void _internal_set_right(::int64_t value);
+
+  public:
+  // required sint64 top = 3;
+  bool has_top() const;
+  void clear_top() ;
+  ::int64_t top() const;
+  void set_top(::int64_t value);
+
+  private:
+  ::int64_t _internal_top() const;
+  void _internal_set_top(::int64_t value);
+
+  public:
+  // required sint64 bottom = 4;
+  bool has_bottom() const;
+  void clear_bottom() ;
+  ::int64_t bottom() const;
+  void set_bottom(::int64_t value);
+
+  private:
+  ::int64_t _internal_bottom() const;
+  void _internal_set_bottom(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:HeaderBBox)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 4, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int64_t left_;
+    ::int64_t right_;
+    ::int64_t top_;
+    ::int64_t bottom_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class DenseInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DenseInfo) */ {
+ public:
+  inline DenseInfo() : DenseInfo(nullptr) {}
+  ~DenseInfo() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR DenseInfo(::google::protobuf::internal::ConstantInitialized);
+
+  inline DenseInfo(const DenseInfo& from)
+      : DenseInfo(nullptr, from) {}
+  DenseInfo(DenseInfo&& from) noexcept
+    : DenseInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline DenseInfo& operator=(const DenseInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DenseInfo& operator=(DenseInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DenseInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DenseInfo* internal_default_instance() {
+    return reinterpret_cast<const DenseInfo*>(
+               &_DenseInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(DenseInfo& a, DenseInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DenseInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DenseInfo* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DenseInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DenseInfo>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DenseInfo& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const DenseInfo& from) {
+    DenseInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(DenseInfo* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "DenseInfo";
+  }
+  protected:
+  explicit DenseInfo(::google::protobuf::Arena* arena);
+  DenseInfo(::google::protobuf::Arena* arena, const DenseInfo& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVersionFieldNumber = 1,
+    kTimestampFieldNumber = 2,
+    kChangesetFieldNumber = 3,
+    kUidFieldNumber = 4,
+    kUserSidFieldNumber = 5,
+    kVisibleFieldNumber = 6,
+  };
+  // repeated int32 version = 1 [packed = true];
+  int version_size() const;
+  private:
+  int _internal_version_size() const;
+
+  public:
+  void clear_version() ;
+  ::int32_t version(int index) const;
+  void set_version(int index, ::int32_t value);
+  void add_version(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& version() const;
+  ::google::protobuf::RepeatedField<::int32_t>* mutable_version();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_version() const;
+  ::google::protobuf::RepeatedField<::int32_t>* _internal_mutable_version();
+
+  public:
+  // repeated sint64 timestamp = 2 [packed = true];
+  int timestamp_size() const;
+  private:
+  int _internal_timestamp_size() const;
+
+  public:
+  void clear_timestamp() ;
+  ::int64_t timestamp(int index) const;
+  void set_timestamp(int index, ::int64_t value);
+  void add_timestamp(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& timestamp() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_timestamp();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_timestamp() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_timestamp();
+
+  public:
+  // repeated sint64 changeset = 3 [packed = true];
+  int changeset_size() const;
+  private:
+  int _internal_changeset_size() const;
+
+  public:
+  void clear_changeset() ;
+  ::int64_t changeset(int index) const;
+  void set_changeset(int index, ::int64_t value);
+  void add_changeset(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& changeset() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_changeset();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_changeset() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_changeset();
+
+  public:
+  // repeated sint32 uid = 4 [packed = true];
+  int uid_size() const;
+  private:
+  int _internal_uid_size() const;
+
+  public:
+  void clear_uid() ;
+  ::int32_t uid(int index) const;
+  void set_uid(int index, ::int32_t value);
+  void add_uid(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& uid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* mutable_uid();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_uid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* _internal_mutable_uid();
+
+  public:
+  // repeated sint32 user_sid = 5 [packed = true];
+  int user_sid_size() const;
+  private:
+  int _internal_user_sid_size() const;
+
+  public:
+  void clear_user_sid() ;
+  ::int32_t user_sid(int index) const;
+  void set_user_sid(int index, ::int32_t value);
+  void add_user_sid(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& user_sid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* mutable_user_sid();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_user_sid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* _internal_mutable_user_sid();
+
+  public:
+  // repeated bool visible = 6 [packed = true];
+  int visible_size() const;
+  private:
+  int _internal_visible_size() const;
+
+  public:
+  void clear_visible() ;
+  bool visible(int index) const;
+  void set_visible(int index, bool value);
+  void add_visible(bool value);
+  const ::google::protobuf::RepeatedField<bool>& visible() const;
+  ::google::protobuf::RepeatedField<bool>* mutable_visible();
+
+  private:
+  const ::google::protobuf::RepeatedField<bool>& _internal_visible() const;
+  ::google::protobuf::RepeatedField<bool>* _internal_mutable_visible();
+
+  public:
+  // @@protoc_insertion_point(class_scope:DenseInfo)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::RepeatedField<::int32_t> version_;
+    mutable ::google::protobuf::internal::CachedSize _version_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> timestamp_;
+    mutable ::google::protobuf::internal::CachedSize _timestamp_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> changeset_;
+    mutable ::google::protobuf::internal::CachedSize _changeset_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> uid_;
+    mutable ::google::protobuf::internal::CachedSize _uid_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> user_sid_;
+    mutable ::google::protobuf::internal::CachedSize _user_sid_cached_byte_size_;
+    ::google::protobuf::RepeatedField<bool> visible_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class ChangeSet final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ChangeSet) */ {
+ public:
+  inline ChangeSet() : ChangeSet(nullptr) {}
+  ~ChangeSet() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR ChangeSet(::google::protobuf::internal::ConstantInitialized);
+
+  inline ChangeSet(const ChangeSet& from)
+      : ChangeSet(nullptr, from) {}
+  ChangeSet(ChangeSet&& from) noexcept
+    : ChangeSet() {
+    *this = ::std::move(from);
+  }
+
+  inline ChangeSet& operator=(const ChangeSet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ChangeSet& operator=(ChangeSet&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ChangeSet& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ChangeSet* internal_default_instance() {
+    return reinterpret_cast<const ChangeSet*>(
+               &_ChangeSet_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(ChangeSet& a, ChangeSet& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ChangeSet* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ChangeSet* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ChangeSet* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ChangeSet>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ChangeSet& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const ChangeSet& from) {
+    ChangeSet::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(ChangeSet* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "ChangeSet";
+  }
+  protected:
+  explicit ChangeSet(::google::protobuf::Arena* arena);
+  ChangeSet(::google::protobuf::Arena* arena, const ChangeSet& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ChangeSet)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int64_t id_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class Way final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Way) */ {
+ public:
+  inline Way() : Way(nullptr) {}
+  ~Way() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR Way(::google::protobuf::internal::ConstantInitialized);
+
+  inline Way(const Way& from)
+      : Way(nullptr, from) {}
+  Way(Way&& from) noexcept
+    : Way() {
+    *this = ::std::move(from);
+  }
+
+  inline Way& operator=(const Way& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Way& operator=(Way&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Way& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Way* internal_default_instance() {
+    return reinterpret_cast<const Way*>(
+               &_Way_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(Way& a, Way& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Way* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Way* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Way* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Way>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Way& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const Way& from) {
+    Way::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Way* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "Way";
+  }
+  protected:
+  explicit Way(::google::protobuf::Arena* arena);
+  Way(::google::protobuf::Arena* arena, const Way& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 2,
+    kValsFieldNumber = 3,
+    kRefsFieldNumber = 8,
+    kLatFieldNumber = 9,
+    kLonFieldNumber = 10,
+    kInfoFieldNumber = 4,
+    kIdFieldNumber = 1,
+  };
+  // repeated uint32 keys = 2 [packed = true];
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+
+  public:
+  void clear_keys() ;
+  ::uint32_t keys(int index) const;
+  void set_keys(int index, ::uint32_t value);
+  void add_keys(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_keys();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_keys();
+
+  public:
+  // repeated uint32 vals = 3 [packed = true];
+  int vals_size() const;
+  private:
+  int _internal_vals_size() const;
+
+  public:
+  void clear_vals() ;
+  ::uint32_t vals(int index) const;
+  void set_vals(int index, ::uint32_t value);
+  void add_vals(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_vals();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_vals();
+
+  public:
+  // repeated sint64 refs = 8 [packed = true];
+  int refs_size() const;
+  private:
+  int _internal_refs_size() const;
+
+  public:
+  void clear_refs() ;
+  ::int64_t refs(int index) const;
+  void set_refs(int index, ::int64_t value);
+  void add_refs(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& refs() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_refs();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_refs() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_refs();
+
+  public:
+  // repeated sint64 lat = 9 [packed = true];
+  int lat_size() const;
+  private:
+  int _internal_lat_size() const;
+
+  public:
+  void clear_lat() ;
+  ::int64_t lat(int index) const;
+  void set_lat(int index, ::int64_t value);
+  void add_lat(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& lat() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_lat();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_lat() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_lat();
+
+  public:
+  // repeated sint64 lon = 10 [packed = true];
+  int lon_size() const;
+  private:
+  int _internal_lon_size() const;
+
+  public:
+  void clear_lon() ;
+  ::int64_t lon(int index) const;
+  void set_lon(int index, ::int64_t value);
+  void add_lon(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& lon() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_lon();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_lon() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_lon();
+
+  public:
+  // optional .Info info = 4;
+  bool has_info() const;
+  void clear_info() ;
+  const ::Info& info() const;
+  PROTOBUF_NODISCARD ::Info* release_info();
+  ::Info* mutable_info();
+  void set_allocated_info(::Info* value);
+  void unsafe_arena_set_allocated_info(::Info* value);
+  ::Info* unsafe_arena_release_info();
+
+  private:
+  const ::Info& _internal_info() const;
+  ::Info* _internal_mutable_info();
+
+  public:
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:Way)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 7, 1,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> keys_;
+    mutable ::google::protobuf::internal::CachedSize _keys_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> vals_;
+    mutable ::google::protobuf::internal::CachedSize _vals_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> refs_;
+    mutable ::google::protobuf::internal::CachedSize _refs_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> lat_;
+    mutable ::google::protobuf::internal::CachedSize _lat_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> lon_;
+    mutable ::google::protobuf::internal::CachedSize _lon_cached_byte_size_;
+    ::Info* info_;
+    ::int64_t id_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class Relation final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Relation) */ {
+ public:
+  inline Relation() : Relation(nullptr) {}
+  ~Relation() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR Relation(::google::protobuf::internal::ConstantInitialized);
+
+  inline Relation(const Relation& from)
+      : Relation(nullptr, from) {}
+  Relation(Relation&& from) noexcept
+    : Relation() {
+    *this = ::std::move(from);
+  }
+
+  inline Relation& operator=(const Relation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Relation& operator=(Relation&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Relation& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Relation* internal_default_instance() {
+    return reinterpret_cast<const Relation*>(
+               &_Relation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Relation& a, Relation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Relation* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Relation* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Relation* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Relation>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Relation& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const Relation& from) {
+    Relation::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Relation* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "Relation";
+  }
+  protected:
+  explicit Relation(::google::protobuf::Arena* arena);
+  Relation(::google::protobuf::Arena* arena, const Relation& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  using MemberType = Relation_MemberType;
+  static constexpr MemberType NODE = Relation_MemberType_NODE;
+  static constexpr MemberType WAY = Relation_MemberType_WAY;
+  static constexpr MemberType RELATION = Relation_MemberType_RELATION;
+  static inline bool MemberType_IsValid(int value) {
+    return Relation_MemberType_IsValid(value);
+  }
+  static constexpr MemberType MemberType_MIN = Relation_MemberType_MemberType_MIN;
+  static constexpr MemberType MemberType_MAX = Relation_MemberType_MemberType_MAX;
+  static constexpr int MemberType_ARRAYSIZE = Relation_MemberType_MemberType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor* MemberType_descriptor() {
+    return Relation_MemberType_descriptor();
+  }
+  template <typename T>
+  static inline const std::string& MemberType_Name(T value) {
+    return Relation_MemberType_Name(value);
+  }
+  static inline bool MemberType_Parse(absl::string_view name, MemberType* value) {
+    return Relation_MemberType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 2,
+    kValsFieldNumber = 3,
+    kRolesSidFieldNumber = 8,
+    kMemidsFieldNumber = 9,
+    kTypesFieldNumber = 10,
+    kInfoFieldNumber = 4,
+    kIdFieldNumber = 1,
+  };
+  // repeated uint32 keys = 2 [packed = true];
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+
+  public:
+  void clear_keys() ;
+  ::uint32_t keys(int index) const;
+  void set_keys(int index, ::uint32_t value);
+  void add_keys(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_keys();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_keys();
+
+  public:
+  // repeated uint32 vals = 3 [packed = true];
+  int vals_size() const;
+  private:
+  int _internal_vals_size() const;
+
+  public:
+  void clear_vals() ;
+  ::uint32_t vals(int index) const;
+  void set_vals(int index, ::uint32_t value);
+  void add_vals(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_vals();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_vals();
+
+  public:
+  // repeated int32 roles_sid = 8 [packed = true];
+  int roles_sid_size() const;
+  private:
+  int _internal_roles_sid_size() const;
+
+  public:
+  void clear_roles_sid() ;
+  ::int32_t roles_sid(int index) const;
+  void set_roles_sid(int index, ::int32_t value);
+  void add_roles_sid(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& roles_sid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* mutable_roles_sid();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_roles_sid() const;
+  ::google::protobuf::RepeatedField<::int32_t>* _internal_mutable_roles_sid();
+
+  public:
+  // repeated sint64 memids = 9 [packed = true];
+  int memids_size() const;
+  private:
+  int _internal_memids_size() const;
+
+  public:
+  void clear_memids() ;
+  ::int64_t memids(int index) const;
+  void set_memids(int index, ::int64_t value);
+  void add_memids(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& memids() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_memids();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_memids() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_memids();
+
+  public:
+  // repeated .Relation.MemberType types = 10 [packed = true];
+  int types_size() const;
+  private:
+  int _internal_types_size() const;
+
+  public:
+  void clear_types() ;
+  public:
+  ::Relation_MemberType types(int index) const;
+  void set_types(int index, ::Relation_MemberType value);
+  void add_types(::Relation_MemberType value);
+  const ::google::protobuf::RepeatedField<int>& types() const;
+  ::google::protobuf::RepeatedField<int>* mutable_types();
+
+  private:
+  const ::google::protobuf::RepeatedField<int>& _internal_types() const;
+  ::google::protobuf::RepeatedField<int>* _internal_mutable_types();
+
+  public:
+  // optional .Info info = 4;
+  bool has_info() const;
+  void clear_info() ;
+  const ::Info& info() const;
+  PROTOBUF_NODISCARD ::Info* release_info();
+  ::Info* mutable_info();
+  void set_allocated_info(::Info* value);
+  void unsafe_arena_set_allocated_info(::Info* value);
+  ::Info* unsafe_arena_release_info();
+
+  private:
+  const ::Info& _internal_info() const;
+  ::Info* _internal_mutable_info();
+
+  public:
+  // required int64 id = 1;
+  bool has_id() const;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:Relation)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 7, 2,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> keys_;
+    mutable ::google::protobuf::internal::CachedSize _keys_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> vals_;
+    mutable ::google::protobuf::internal::CachedSize _vals_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> roles_sid_;
+    mutable ::google::protobuf::internal::CachedSize _roles_sid_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> memids_;
+    mutable ::google::protobuf::internal::CachedSize _memids_cached_byte_size_;
+    ::google::protobuf::RepeatedField<int> types_;
+    mutable ::google::protobuf::internal::CachedSize _types_cached_byte_size_;
+    ::Info* info_;
+    ::int64_t id_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class Node final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:Node) */ {
+ public:
+  inline Node() : Node(nullptr) {}
+  ~Node() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR Node(::google::protobuf::internal::ConstantInitialized);
+
+  inline Node(const Node& from)
+      : Node(nullptr, from) {}
+  Node(Node&& from) noexcept
+    : Node() {
+    *this = ::std::move(from);
+  }
+
+  inline Node& operator=(const Node& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Node& operator=(Node&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Node& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Node* internal_default_instance() {
+    return reinterpret_cast<const Node*>(
+               &_Node_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(Node& a, Node& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Node* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Node* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Node* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Node>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Node& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const Node& from) {
+    Node::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Node* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "Node";
+  }
+  protected:
+  explicit Node(::google::protobuf::Arena* arena);
+  Node(::google::protobuf::Arena* arena, const Node& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeysFieldNumber = 2,
+    kValsFieldNumber = 3,
+    kInfoFieldNumber = 4,
+    kIdFieldNumber = 1,
+    kLatFieldNumber = 8,
+    kLonFieldNumber = 9,
+  };
+  // repeated uint32 keys = 2 [packed = true];
+  int keys_size() const;
+  private:
+  int _internal_keys_size() const;
+
+  public:
+  void clear_keys() ;
+  ::uint32_t keys(int index) const;
+  void set_keys(int index, ::uint32_t value);
+  void add_keys(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_keys();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_keys() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_keys();
+
+  public:
+  // repeated uint32 vals = 3 [packed = true];
+  int vals_size() const;
+  private:
+  int _internal_vals_size() const;
+
+  public:
+  void clear_vals() ;
+  ::uint32_t vals(int index) const;
+  void set_vals(int index, ::uint32_t value);
+  void add_vals(::uint32_t value);
+  const ::google::protobuf::RepeatedField<::uint32_t>& vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* mutable_vals();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint32_t>& _internal_vals() const;
+  ::google::protobuf::RepeatedField<::uint32_t>* _internal_mutable_vals();
+
+  public:
+  // optional .Info info = 4;
+  bool has_info() const;
+  void clear_info() ;
+  const ::Info& info() const;
+  PROTOBUF_NODISCARD ::Info* release_info();
+  ::Info* mutable_info();
+  void set_allocated_info(::Info* value);
+  void unsafe_arena_set_allocated_info(::Info* value);
+  ::Info* unsafe_arena_release_info();
+
+  private:
+  const ::Info& _internal_info() const;
+  ::Info* _internal_mutable_info();
+
+  public:
+  // required sint64 id = 1;
+  bool has_id() const;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
+  // required sint64 lat = 8;
+  bool has_lat() const;
+  void clear_lat() ;
+  ::int64_t lat() const;
+  void set_lat(::int64_t value);
+
+  private:
+  ::int64_t _internal_lat() const;
+  void _internal_set_lat(::int64_t value);
+
+  public:
+  // required sint64 lon = 9;
+  bool has_lon() const;
+  void clear_lon() ;
+  ::int64_t lon() const;
+  void set_lon(::int64_t value);
+
+  private:
+  ::int64_t _internal_lon() const;
+  void _internal_set_lon(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:Node)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 1,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> keys_;
+    mutable ::google::protobuf::internal::CachedSize _keys_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::uint32_t> vals_;
+    mutable ::google::protobuf::internal::CachedSize _vals_cached_byte_size_;
+    ::Info* info_;
+    ::int64_t id_;
+    ::int64_t lat_;
+    ::int64_t lon_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class HeaderBlock final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:HeaderBlock) */ {
+ public:
+  inline HeaderBlock() : HeaderBlock(nullptr) {}
+  ~HeaderBlock() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR HeaderBlock(::google::protobuf::internal::ConstantInitialized);
+
+  inline HeaderBlock(const HeaderBlock& from)
+      : HeaderBlock(nullptr, from) {}
+  HeaderBlock(HeaderBlock&& from) noexcept
+    : HeaderBlock() {
+    *this = ::std::move(from);
+  }
+
+  inline HeaderBlock& operator=(const HeaderBlock& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HeaderBlock& operator=(HeaderBlock&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const HeaderBlock& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HeaderBlock* internal_default_instance() {
+    return reinterpret_cast<const HeaderBlock*>(
+               &_HeaderBlock_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(HeaderBlock& a, HeaderBlock& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HeaderBlock* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HeaderBlock* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  HeaderBlock* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<HeaderBlock>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const HeaderBlock& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const HeaderBlock& from) {
+    HeaderBlock::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(HeaderBlock* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "HeaderBlock";
+  }
+  protected:
+  explicit HeaderBlock(::google::protobuf::Arena* arena);
+  HeaderBlock(::google::protobuf::Arena* arena, const HeaderBlock& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRequiredFeaturesFieldNumber = 4,
+    kOptionalFeaturesFieldNumber = 5,
+    kWritingprogramFieldNumber = 16,
+    kSourceFieldNumber = 17,
+    kOsmosisReplicationBaseUrlFieldNumber = 34,
+    kBboxFieldNumber = 1,
+    kOsmosisReplicationTimestampFieldNumber = 32,
+    kOsmosisReplicationSequenceNumberFieldNumber = 33,
+  };
+  // repeated string required_features = 4;
+  int required_features_size() const;
+  private:
+  int _internal_required_features_size() const;
+
+  public:
+  void clear_required_features() ;
+  const std::string& required_features(int index) const;
+  std::string* mutable_required_features(int index);
+  void set_required_features(int index, const std::string& value);
+  void set_required_features(int index, std::string&& value);
+  void set_required_features(int index, const char* value);
+  void set_required_features(int index, const char* value, std::size_t size);
+  void set_required_features(int index, absl::string_view value);
+  std::string* add_required_features();
+  void add_required_features(const std::string& value);
+  void add_required_features(std::string&& value);
+  void add_required_features(const char* value);
+  void add_required_features(const char* value, std::size_t size);
+  void add_required_features(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& required_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_required_features();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_required_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_required_features();
+
+  public:
+  // repeated string optional_features = 5;
+  int optional_features_size() const;
+  private:
+  int _internal_optional_features_size() const;
+
+  public:
+  void clear_optional_features() ;
+  const std::string& optional_features(int index) const;
+  std::string* mutable_optional_features(int index);
+  void set_optional_features(int index, const std::string& value);
+  void set_optional_features(int index, std::string&& value);
+  void set_optional_features(int index, const char* value);
+  void set_optional_features(int index, const char* value, std::size_t size);
+  void set_optional_features(int index, absl::string_view value);
+  std::string* add_optional_features();
+  void add_optional_features(const std::string& value);
+  void add_optional_features(std::string&& value);
+  void add_optional_features(const char* value);
+  void add_optional_features(const char* value, std::size_t size);
+  void add_optional_features(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& optional_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_optional_features();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_optional_features() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_optional_features();
+
+  public:
+  // optional string writingprogram = 16;
+  bool has_writingprogram() const;
+  void clear_writingprogram() ;
+  const std::string& writingprogram() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_writingprogram(Arg_&& arg, Args_... args);
+  std::string* mutable_writingprogram();
+  PROTOBUF_NODISCARD std::string* release_writingprogram();
+  void set_allocated_writingprogram(std::string* value);
+
+  private:
+  const std::string& _internal_writingprogram() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_writingprogram(
+      const std::string& value);
+  std::string* _internal_mutable_writingprogram();
+
+  public:
+  // optional string source = 17;
+  bool has_source() const;
+  void clear_source() ;
+  const std::string& source() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_source(Arg_&& arg, Args_... args);
+  std::string* mutable_source();
+  PROTOBUF_NODISCARD std::string* release_source();
+  void set_allocated_source(std::string* value);
+
+  private:
+  const std::string& _internal_source() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_source(
+      const std::string& value);
+  std::string* _internal_mutable_source();
+
+  public:
+  // optional string osmosis_replication_base_url = 34;
+  bool has_osmosis_replication_base_url() const;
+  void clear_osmosis_replication_base_url() ;
+  const std::string& osmosis_replication_base_url() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_osmosis_replication_base_url(Arg_&& arg, Args_... args);
+  std::string* mutable_osmosis_replication_base_url();
+  PROTOBUF_NODISCARD std::string* release_osmosis_replication_base_url();
+  void set_allocated_osmosis_replication_base_url(std::string* value);
+
+  private:
+  const std::string& _internal_osmosis_replication_base_url() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_osmosis_replication_base_url(
+      const std::string& value);
+  std::string* _internal_mutable_osmosis_replication_base_url();
+
+  public:
+  // optional .HeaderBBox bbox = 1;
+  bool has_bbox() const;
+  void clear_bbox() ;
+  const ::HeaderBBox& bbox() const;
+  PROTOBUF_NODISCARD ::HeaderBBox* release_bbox();
+  ::HeaderBBox* mutable_bbox();
+  void set_allocated_bbox(::HeaderBBox* value);
+  void unsafe_arena_set_allocated_bbox(::HeaderBBox* value);
+  ::HeaderBBox* unsafe_arena_release_bbox();
+
+  private:
+  const ::HeaderBBox& _internal_bbox() const;
+  ::HeaderBBox* _internal_mutable_bbox();
+
+  public:
+  // optional int64 osmosis_replication_timestamp = 32;
+  bool has_osmosis_replication_timestamp() const;
+  void clear_osmosis_replication_timestamp() ;
+  ::int64_t osmosis_replication_timestamp() const;
+  void set_osmosis_replication_timestamp(::int64_t value);
+
+  private:
+  ::int64_t _internal_osmosis_replication_timestamp() const;
+  void _internal_set_osmosis_replication_timestamp(::int64_t value);
+
+  public:
+  // optional int64 osmosis_replication_sequence_number = 33;
+  bool has_osmosis_replication_sequence_number() const;
+  void clear_osmosis_replication_sequence_number() ;
+  ::int64_t osmosis_replication_sequence_number() const;
+  void set_osmosis_replication_sequence_number(::int64_t value);
+
+  private:
+  ::int64_t _internal_osmosis_replication_sequence_number() const;
+  void _internal_set_osmosis_replication_sequence_number(::int64_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:HeaderBlock)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 8, 1,
+      110, 7>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<std::string> required_features_;
+    ::google::protobuf::RepeatedPtrField<std::string> optional_features_;
+    ::google::protobuf::internal::ArenaStringPtr writingprogram_;
+    ::google::protobuf::internal::ArenaStringPtr source_;
+    ::google::protobuf::internal::ArenaStringPtr osmosis_replication_base_url_;
+    ::HeaderBBox* bbox_;
+    ::int64_t osmosis_replication_timestamp_;
+    ::int64_t osmosis_replication_sequence_number_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class DenseNodes final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DenseNodes) */ {
+ public:
+  inline DenseNodes() : DenseNodes(nullptr) {}
+  ~DenseNodes() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR DenseNodes(::google::protobuf::internal::ConstantInitialized);
+
+  inline DenseNodes(const DenseNodes& from)
+      : DenseNodes(nullptr, from) {}
+  DenseNodes(DenseNodes&& from) noexcept
+    : DenseNodes() {
+    *this = ::std::move(from);
+  }
+
+  inline DenseNodes& operator=(const DenseNodes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DenseNodes& operator=(DenseNodes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DenseNodes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DenseNodes* internal_default_instance() {
+    return reinterpret_cast<const DenseNodes*>(
+               &_DenseNodes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(DenseNodes& a, DenseNodes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DenseNodes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DenseNodes* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DenseNodes* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DenseNodes>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DenseNodes& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const DenseNodes& from) {
+    DenseNodes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(DenseNodes* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "DenseNodes";
+  }
+  protected:
+  explicit DenseNodes(::google::protobuf::Arena* arena);
+  DenseNodes(::google::protobuf::Arena* arena, const DenseNodes& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+    kLatFieldNumber = 8,
+    kLonFieldNumber = 9,
+    kKeysValsFieldNumber = 10,
+    kDenseinfoFieldNumber = 5,
+  };
+  // repeated sint64 id = 1 [packed = true];
+  int id_size() const;
+  private:
+  int _internal_id_size() const;
+
+  public:
+  void clear_id() ;
+  ::int64_t id(int index) const;
+  void set_id(int index, ::int64_t value);
+  void add_id(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& id() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_id();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_id() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_id();
+
+  public:
+  // repeated sint64 lat = 8 [packed = true];
+  int lat_size() const;
+  private:
+  int _internal_lat_size() const;
+
+  public:
+  void clear_lat() ;
+  ::int64_t lat(int index) const;
+  void set_lat(int index, ::int64_t value);
+  void add_lat(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& lat() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_lat();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_lat() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_lat();
+
+  public:
+  // repeated sint64 lon = 9 [packed = true];
+  int lon_size() const;
+  private:
+  int _internal_lon_size() const;
+
+  public:
+  void clear_lon() ;
+  ::int64_t lon(int index) const;
+  void set_lon(int index, ::int64_t value);
+  void add_lon(::int64_t value);
+  const ::google::protobuf::RepeatedField<::int64_t>& lon() const;
+  ::google::protobuf::RepeatedField<::int64_t>* mutable_lon();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int64_t>& _internal_lon() const;
+  ::google::protobuf::RepeatedField<::int64_t>* _internal_mutable_lon();
+
+  public:
+  // repeated int32 keys_vals = 10 [packed = true];
+  int keys_vals_size() const;
+  private:
+  int _internal_keys_vals_size() const;
+
+  public:
+  void clear_keys_vals() ;
+  ::int32_t keys_vals(int index) const;
+  void set_keys_vals(int index, ::int32_t value);
+  void add_keys_vals(::int32_t value);
+  const ::google::protobuf::RepeatedField<::int32_t>& keys_vals() const;
+  ::google::protobuf::RepeatedField<::int32_t>* mutable_keys_vals();
+
+  private:
+  const ::google::protobuf::RepeatedField<::int32_t>& _internal_keys_vals() const;
+  ::google::protobuf::RepeatedField<::int32_t>* _internal_mutable_keys_vals();
+
+  public:
+  // optional .DenseInfo denseinfo = 5;
+  bool has_denseinfo() const;
+  void clear_denseinfo() ;
+  const ::DenseInfo& denseinfo() const;
+  PROTOBUF_NODISCARD ::DenseInfo* release_denseinfo();
+  ::DenseInfo* mutable_denseinfo();
+  void set_allocated_denseinfo(::DenseInfo* value);
+  void unsafe_arena_set_allocated_denseinfo(::DenseInfo* value);
+  ::DenseInfo* unsafe_arena_release_denseinfo();
+
+  private:
+  const ::DenseInfo& _internal_denseinfo() const;
+  ::DenseInfo* _internal_mutable_denseinfo();
+
+  public:
+  // @@protoc_insertion_point(class_scope:DenseNodes)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 1,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedField<::int64_t> id_;
+    mutable ::google::protobuf::internal::CachedSize _id_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> lat_;
+    mutable ::google::protobuf::internal::CachedSize _lat_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int64_t> lon_;
+    mutable ::google::protobuf::internal::CachedSize _lon_cached_byte_size_;
+    ::google::protobuf::RepeatedField<::int32_t> keys_vals_;
+    mutable ::google::protobuf::internal::CachedSize _keys_vals_cached_byte_size_;
+    ::DenseInfo* denseinfo_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class PrimitiveGroup final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PrimitiveGroup) */ {
+ public:
+  inline PrimitiveGroup() : PrimitiveGroup(nullptr) {}
+  ~PrimitiveGroup() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR PrimitiveGroup(::google::protobuf::internal::ConstantInitialized);
+
+  inline PrimitiveGroup(const PrimitiveGroup& from)
+      : PrimitiveGroup(nullptr, from) {}
+  PrimitiveGroup(PrimitiveGroup&& from) noexcept
+    : PrimitiveGroup() {
+    *this = ::std::move(from);
+  }
+
+  inline PrimitiveGroup& operator=(const PrimitiveGroup& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PrimitiveGroup& operator=(PrimitiveGroup&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PrimitiveGroup& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PrimitiveGroup* internal_default_instance() {
+    return reinterpret_cast<const PrimitiveGroup*>(
+               &_PrimitiveGroup_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(PrimitiveGroup& a, PrimitiveGroup& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PrimitiveGroup* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PrimitiveGroup* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PrimitiveGroup* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PrimitiveGroup>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const PrimitiveGroup& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const PrimitiveGroup& from) {
+    PrimitiveGroup::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(PrimitiveGroup* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "PrimitiveGroup";
+  }
+  protected:
+  explicit PrimitiveGroup(::google::protobuf::Arena* arena);
+  PrimitiveGroup(::google::protobuf::Arena* arena, const PrimitiveGroup& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNodesFieldNumber = 1,
+    kWaysFieldNumber = 3,
+    kRelationsFieldNumber = 4,
+    kChangesetsFieldNumber = 5,
+    kDenseFieldNumber = 2,
+  };
+  // repeated .Node nodes = 1;
+  int nodes_size() const;
+  private:
+  int _internal_nodes_size() const;
+
+  public:
+  void clear_nodes() ;
+  ::Node* mutable_nodes(int index);
+  ::google::protobuf::RepeatedPtrField< ::Node >*
+      mutable_nodes();
+  private:
+  const ::google::protobuf::RepeatedPtrField<::Node>& _internal_nodes() const;
+  ::google::protobuf::RepeatedPtrField<::Node>* _internal_mutable_nodes();
+  public:
+  const ::Node& nodes(int index) const;
+  ::Node* add_nodes();
+  const ::google::protobuf::RepeatedPtrField< ::Node >&
+      nodes() const;
+  // repeated .Way ways = 3;
+  int ways_size() const;
+  private:
+  int _internal_ways_size() const;
+
+  public:
+  void clear_ways() ;
+  ::Way* mutable_ways(int index);
+  ::google::protobuf::RepeatedPtrField< ::Way >*
+      mutable_ways();
+  private:
+  const ::google::protobuf::RepeatedPtrField<::Way>& _internal_ways() const;
+  ::google::protobuf::RepeatedPtrField<::Way>* _internal_mutable_ways();
+  public:
+  const ::Way& ways(int index) const;
+  ::Way* add_ways();
+  const ::google::protobuf::RepeatedPtrField< ::Way >&
+      ways() const;
+  // repeated .Relation relations = 4;
+  int relations_size() const;
+  private:
+  int _internal_relations_size() const;
+
+  public:
+  void clear_relations() ;
+  ::Relation* mutable_relations(int index);
+  ::google::protobuf::RepeatedPtrField< ::Relation >*
+      mutable_relations();
+  private:
+  const ::google::protobuf::RepeatedPtrField<::Relation>& _internal_relations() const;
+  ::google::protobuf::RepeatedPtrField<::Relation>* _internal_mutable_relations();
+  public:
+  const ::Relation& relations(int index) const;
+  ::Relation* add_relations();
+  const ::google::protobuf::RepeatedPtrField< ::Relation >&
+      relations() const;
+  // repeated .ChangeSet changesets = 5;
+  int changesets_size() const;
+  private:
+  int _internal_changesets_size() const;
+
+  public:
+  void clear_changesets() ;
+  ::ChangeSet* mutable_changesets(int index);
+  ::google::protobuf::RepeatedPtrField< ::ChangeSet >*
+      mutable_changesets();
+  private:
+  const ::google::protobuf::RepeatedPtrField<::ChangeSet>& _internal_changesets() const;
+  ::google::protobuf::RepeatedPtrField<::ChangeSet>* _internal_mutable_changesets();
+  public:
+  const ::ChangeSet& changesets(int index) const;
+  ::ChangeSet* add_changesets();
+  const ::google::protobuf::RepeatedPtrField< ::ChangeSet >&
+      changesets() const;
+  // optional .DenseNodes dense = 2;
+  bool has_dense() const;
+  void clear_dense() ;
+  const ::DenseNodes& dense() const;
+  PROTOBUF_NODISCARD ::DenseNodes* release_dense();
+  ::DenseNodes* mutable_dense();
+  void set_allocated_dense(::DenseNodes* value);
+  void unsafe_arena_set_allocated_dense(::DenseNodes* value);
+  ::DenseNodes* unsafe_arena_release_dense();
+
+  private:
+  const ::DenseNodes& _internal_dense() const;
+  ::DenseNodes* _internal_mutable_dense();
+
+  public:
+  // @@protoc_insertion_point(class_scope:PrimitiveGroup)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 5,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::Node > nodes_;
+    ::google::protobuf::RepeatedPtrField< ::Way > ways_;
+    ::google::protobuf::RepeatedPtrField< ::Relation > relations_;
+    ::google::protobuf::RepeatedPtrField< ::ChangeSet > changesets_;
+    ::DenseNodes* dense_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};// -------------------------------------------------------------------
+
+class PrimitiveBlock final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:PrimitiveBlock) */ {
+ public:
+  inline PrimitiveBlock() : PrimitiveBlock(nullptr) {}
+  ~PrimitiveBlock() override;
+  template<typename = void>
+  explicit PROTOBUF_CONSTEXPR PrimitiveBlock(::google::protobuf::internal::ConstantInitialized);
+
+  inline PrimitiveBlock(const PrimitiveBlock& from)
+      : PrimitiveBlock(nullptr, from) {}
+  PrimitiveBlock(PrimitiveBlock&& from) noexcept
+    : PrimitiveBlock() {
+    *this = ::std::move(from);
+  }
+
+  inline PrimitiveBlock& operator=(const PrimitiveBlock& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PrimitiveBlock& operator=(PrimitiveBlock&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PrimitiveBlock& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PrimitiveBlock* internal_default_instance() {
+    return reinterpret_cast<const PrimitiveBlock*>(
+               &_PrimitiveBlock_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(PrimitiveBlock& a, PrimitiveBlock& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PrimitiveBlock* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr &&
+        GetArena() == other->GetArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PrimitiveBlock* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PrimitiveBlock* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PrimitiveBlock>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const PrimitiveBlock& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom( const PrimitiveBlock& from) {
+    PrimitiveBlock::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::google::protobuf::Message& to_msg, const ::google::protobuf::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  ::size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::google::protobuf::internal::ParseContext* ctx) final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target, ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  ::google::protobuf::internal::CachedSize* AccessCachedSize() const final;
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(PrimitiveBlock* other);
+
+  private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() {
+    return "PrimitiveBlock";
+  }
+  protected:
+  explicit PrimitiveBlock(::google::protobuf::Arena* arena);
+  PrimitiveBlock(::google::protobuf::Arena* arena, const PrimitiveBlock& from);
+  public:
+
+  static const ClassData _class_data_;
+  const ::google::protobuf::Message::ClassData*GetClassData() const final;
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPrimitivegroupFieldNumber = 2,
+    kStringtableFieldNumber = 1,
+    kLatOffsetFieldNumber = 19,
+    kLonOffsetFieldNumber = 20,
+    kGranularityFieldNumber = 17,
+    kDateGranularityFieldNumber = 18,
+  };
+  // repeated .PrimitiveGroup primitivegroup = 2;
+  int primitivegroup_size() const;
+  private:
+  int _internal_primitivegroup_size() const;
+
+  public:
+  void clear_primitivegroup() ;
+  ::PrimitiveGroup* mutable_primitivegroup(int index);
+  ::google::protobuf::RepeatedPtrField< ::PrimitiveGroup >*
+      mutable_primitivegroup();
+  private:
+  const ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>& _internal_primitivegroup() const;
+  ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>* _internal_mutable_primitivegroup();
+  public:
+  const ::PrimitiveGroup& primitivegroup(int index) const;
+  ::PrimitiveGroup* add_primitivegroup();
+  const ::google::protobuf::RepeatedPtrField< ::PrimitiveGroup >&
+      primitivegroup() const;
+  // required .StringTable stringtable = 1;
+  bool has_stringtable() const;
+  void clear_stringtable() ;
+  const ::StringTable& stringtable() const;
+  PROTOBUF_NODISCARD ::StringTable* release_stringtable();
+  ::StringTable* mutable_stringtable();
+  void set_allocated_stringtable(::StringTable* value);
+  void unsafe_arena_set_allocated_stringtable(::StringTable* value);
+  ::StringTable* unsafe_arena_release_stringtable();
+
+  private:
+  const ::StringTable& _internal_stringtable() const;
+  ::StringTable* _internal_mutable_stringtable();
+
+  public:
+  // optional int64 lat_offset = 19 [default = 0];
+  bool has_lat_offset() const;
+  void clear_lat_offset() ;
+  ::int64_t lat_offset() const;
+  void set_lat_offset(::int64_t value);
+
+  private:
+  ::int64_t _internal_lat_offset() const;
+  void _internal_set_lat_offset(::int64_t value);
+
+  public:
+  // optional int64 lon_offset = 20 [default = 0];
+  bool has_lon_offset() const;
+  void clear_lon_offset() ;
+  ::int64_t lon_offset() const;
+  void set_lon_offset(::int64_t value);
+
+  private:
+  ::int64_t _internal_lon_offset() const;
+  void _internal_set_lon_offset(::int64_t value);
+
+  public:
+  // optional int32 granularity = 17 [default = 100];
+  bool has_granularity() const;
+  void clear_granularity() ;
+  ::int32_t granularity() const;
+  void set_granularity(::int32_t value);
+
+  private:
+  ::int32_t _internal_granularity() const;
+  void _internal_set_granularity(::int32_t value);
+
+  public:
+  // optional int32 date_granularity = 18 [default = 1000];
+  bool has_date_granularity() const;
+  void clear_date_granularity() ;
+  ::int32_t date_granularity() const;
+  void set_date_granularity(::int32_t value);
+
+  private:
+  ::int32_t _internal_date_granularity() const;
+  void _internal_set_date_granularity(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:PrimitiveBlock)
+ private:
+  class _Internal;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 6, 2,
+      0, 2>
+      _table_;
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+
+        inline explicit constexpr Impl_(
+            ::google::protobuf::internal::ConstantInitialized) noexcept;
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena);
+        inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                              ::google::protobuf::Arena* arena, const Impl_& from);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::PrimitiveGroup > primitivegroup_;
+    ::StringTable* stringtable_;
+    ::int64_t lat_offset_;
+    ::int64_t lon_offset_;
+    ::int32_t granularity_;
+    ::int32_t date_granularity_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_osmformat_2eproto;
+};
 
 // ===================================================================
 
@@ -75,12 +3246,3113 @@ namespace protobuf {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// HeaderBBox
+
+// required sint64 left = 1;
+inline bool HeaderBBox::has_left() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline void HeaderBBox::clear_left() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.left_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::int64_t HeaderBBox::left() const {
+  // @@protoc_insertion_point(field_get:HeaderBBox.left)
+  return _internal_left();
+}
+inline void HeaderBBox::set_left(::int64_t value) {
+  _internal_set_left(value);
+  // @@protoc_insertion_point(field_set:HeaderBBox.left)
+}
+inline ::int64_t HeaderBBox::_internal_left() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.left_;
+}
+inline void HeaderBBox::_internal_set_left(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.left_ = value;
+}
+
+// required sint64 right = 2;
+inline bool HeaderBBox::has_right() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void HeaderBBox::clear_right() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.right_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int64_t HeaderBBox::right() const {
+  // @@protoc_insertion_point(field_get:HeaderBBox.right)
+  return _internal_right();
+}
+inline void HeaderBBox::set_right(::int64_t value) {
+  _internal_set_right(value);
+  // @@protoc_insertion_point(field_set:HeaderBBox.right)
+}
+inline ::int64_t HeaderBBox::_internal_right() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.right_;
+}
+inline void HeaderBBox::_internal_set_right(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.right_ = value;
+}
+
+// required sint64 top = 3;
+inline bool HeaderBBox::has_top() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline void HeaderBBox::clear_top() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.top_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::int64_t HeaderBBox::top() const {
+  // @@protoc_insertion_point(field_get:HeaderBBox.top)
+  return _internal_top();
+}
+inline void HeaderBBox::set_top(::int64_t value) {
+  _internal_set_top(value);
+  // @@protoc_insertion_point(field_set:HeaderBBox.top)
+}
+inline ::int64_t HeaderBBox::_internal_top() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.top_;
+}
+inline void HeaderBBox::_internal_set_top(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.top_ = value;
+}
+
+// required sint64 bottom = 4;
+inline bool HeaderBBox::has_bottom() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline void HeaderBBox::clear_bottom() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.bottom_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::int64_t HeaderBBox::bottom() const {
+  // @@protoc_insertion_point(field_get:HeaderBBox.bottom)
+  return _internal_bottom();
+}
+inline void HeaderBBox::set_bottom(::int64_t value) {
+  _internal_set_bottom(value);
+  // @@protoc_insertion_point(field_set:HeaderBBox.bottom)
+}
+inline ::int64_t HeaderBBox::_internal_bottom() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.bottom_;
+}
+inline void HeaderBBox::_internal_set_bottom(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.bottom_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// HeaderBlock
+
+// optional .HeaderBBox bbox = 1;
+inline bool HeaderBlock::has_bbox() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.bbox_ != nullptr);
+  return value;
+}
+inline void HeaderBlock::clear_bbox() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.bbox_ != nullptr) _impl_.bbox_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline const ::HeaderBBox& HeaderBlock::_internal_bbox() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::HeaderBBox* p = _impl_.bbox_;
+  return p != nullptr ? *p : reinterpret_cast<const ::HeaderBBox&>(::_HeaderBBox_default_instance_);
+}
+inline const ::HeaderBBox& HeaderBlock::bbox() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.bbox)
+  return _internal_bbox();
+}
+inline void HeaderBlock::unsafe_arena_set_allocated_bbox(::HeaderBBox* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.bbox_);
+  }
+  _impl_.bbox_ = reinterpret_cast<::HeaderBBox*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:HeaderBlock.bbox)
+}
+inline ::HeaderBBox* HeaderBlock::release_bbox() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::HeaderBBox* released = _impl_.bbox_;
+  _impl_.bbox_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::HeaderBBox* HeaderBlock::unsafe_arena_release_bbox() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:HeaderBlock.bbox)
+
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::HeaderBBox* temp = _impl_.bbox_;
+  _impl_.bbox_ = nullptr;
+  return temp;
+}
+inline ::HeaderBBox* HeaderBlock::_internal_mutable_bbox() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000008u;
+  if (_impl_.bbox_ == nullptr) {
+    auto* p = CreateMaybeMessage<::HeaderBBox>(GetArena());
+    _impl_.bbox_ = reinterpret_cast<::HeaderBBox*>(p);
+  }
+  return _impl_.bbox_;
+}
+inline ::HeaderBBox* HeaderBlock::mutable_bbox() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::HeaderBBox* _msg = _internal_mutable_bbox();
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.bbox)
+  return _msg;
+}
+inline void HeaderBlock::set_allocated_bbox(::HeaderBBox* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::HeaderBBox*>(_impl_.bbox_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::HeaderBBox*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+
+  _impl_.bbox_ = reinterpret_cast<::HeaderBBox*>(value);
+  // @@protoc_insertion_point(field_set_allocated:HeaderBlock.bbox)
+}
+
+// repeated string required_features = 4;
+inline int HeaderBlock::_internal_required_features_size() const {
+  return _internal_required_features().size();
+}
+inline int HeaderBlock::required_features_size() const {
+  return _internal_required_features_size();
+}
+inline void HeaderBlock::clear_required_features() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.required_features_.Clear();
+}
+inline std::string* HeaderBlock::add_required_features()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  std::string* _s = _internal_mutable_required_features()->Add();
+  // @@protoc_insertion_point(field_add_mutable:HeaderBlock.required_features)
+  return _s;
+}
+inline const std::string& HeaderBlock::required_features(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.required_features)
+  return _internal_required_features().Get(index);
+}
+inline std::string* HeaderBlock::mutable_required_features(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.required_features)
+  return _internal_mutable_required_features()->Mutable(index);
+}
+inline void HeaderBlock::set_required_features(int index, const std::string& value) {
+  _internal_mutable_required_features()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:HeaderBlock.required_features)
+}
+inline void HeaderBlock::set_required_features(int index, std::string&& value) {
+  _internal_mutable_required_features()->Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:HeaderBlock.required_features)
+}
+inline void HeaderBlock::set_required_features(int index, const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  _internal_mutable_required_features()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:HeaderBlock.required_features)
+}
+inline void HeaderBlock::set_required_features(int index, const char* value,
+                              std::size_t size) {
+  _internal_mutable_required_features()->Mutable(index)->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:HeaderBlock.required_features)
+}
+inline void HeaderBlock::set_required_features(int index, absl::string_view value) {
+  _internal_mutable_required_features()->Mutable(index)->assign(value.data(),
+                                                     value.size());
+  // @@protoc_insertion_point(field_set_string_piece:HeaderBlock.required_features)
+}
+inline void HeaderBlock::add_required_features(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_required_features()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add:HeaderBlock.required_features)
+}
+inline void HeaderBlock::add_required_features(std::string&& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_required_features()->Add(std::move(value));
+  // @@protoc_insertion_point(field_add:HeaderBlock.required_features)
+}
+inline void HeaderBlock::add_required_features(const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_required_features()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:HeaderBlock.required_features)
+}
+inline void HeaderBlock::add_required_features(const char* value, std::size_t size) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_required_features()->Add()->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:HeaderBlock.required_features)
+}
+inline void HeaderBlock::add_required_features(absl::string_view value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_required_features()->Add()->assign(value.data(), value.size());
+  // @@protoc_insertion_point(field_add_string_piece:HeaderBlock.required_features)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+HeaderBlock::required_features() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:HeaderBlock.required_features)
+  return _internal_required_features();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+HeaderBlock::mutable_required_features() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:HeaderBlock.required_features)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_required_features();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+HeaderBlock::_internal_required_features() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.required_features_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+HeaderBlock::_internal_mutable_required_features() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.required_features_;
+}
+
+// repeated string optional_features = 5;
+inline int HeaderBlock::_internal_optional_features_size() const {
+  return _internal_optional_features().size();
+}
+inline int HeaderBlock::optional_features_size() const {
+  return _internal_optional_features_size();
+}
+inline void HeaderBlock::clear_optional_features() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.optional_features_.Clear();
+}
+inline std::string* HeaderBlock::add_optional_features()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  std::string* _s = _internal_mutable_optional_features()->Add();
+  // @@protoc_insertion_point(field_add_mutable:HeaderBlock.optional_features)
+  return _s;
+}
+inline const std::string& HeaderBlock::optional_features(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.optional_features)
+  return _internal_optional_features().Get(index);
+}
+inline std::string* HeaderBlock::mutable_optional_features(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.optional_features)
+  return _internal_mutable_optional_features()->Mutable(index);
+}
+inline void HeaderBlock::set_optional_features(int index, const std::string& value) {
+  _internal_mutable_optional_features()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::set_optional_features(int index, std::string&& value) {
+  _internal_mutable_optional_features()->Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::set_optional_features(int index, const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  _internal_mutable_optional_features()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::set_optional_features(int index, const char* value,
+                              std::size_t size) {
+  _internal_mutable_optional_features()->Mutable(index)->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::set_optional_features(int index, absl::string_view value) {
+  _internal_mutable_optional_features()->Mutable(index)->assign(value.data(),
+                                                     value.size());
+  // @@protoc_insertion_point(field_set_string_piece:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::add_optional_features(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_optional_features()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::add_optional_features(std::string&& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_optional_features()->Add(std::move(value));
+  // @@protoc_insertion_point(field_add:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::add_optional_features(const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_optional_features()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::add_optional_features(const char* value, std::size_t size) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_optional_features()->Add()->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:HeaderBlock.optional_features)
+}
+inline void HeaderBlock::add_optional_features(absl::string_view value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_optional_features()->Add()->assign(value.data(), value.size());
+  // @@protoc_insertion_point(field_add_string_piece:HeaderBlock.optional_features)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+HeaderBlock::optional_features() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:HeaderBlock.optional_features)
+  return _internal_optional_features();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+HeaderBlock::mutable_optional_features() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:HeaderBlock.optional_features)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_optional_features();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+HeaderBlock::_internal_optional_features() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.optional_features_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+HeaderBlock::_internal_mutable_optional_features() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.optional_features_;
+}
+
+// optional string writingprogram = 16;
+inline bool HeaderBlock::has_writingprogram() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline void HeaderBlock::clear_writingprogram() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.writingprogram_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& HeaderBlock::writingprogram() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.writingprogram)
+  return _internal_writingprogram();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void HeaderBlock::set_writingprogram(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.writingprogram_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:HeaderBlock.writingprogram)
+}
+inline std::string* HeaderBlock::mutable_writingprogram() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_writingprogram();
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.writingprogram)
+  return _s;
+}
+inline const std::string& HeaderBlock::_internal_writingprogram() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.writingprogram_.Get();
+}
+inline void HeaderBlock::_internal_set_writingprogram(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.writingprogram_.Set(value, GetArena());
+}
+inline std::string* HeaderBlock::_internal_mutable_writingprogram() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.writingprogram_.Mutable( GetArena());
+}
+inline std::string* HeaderBlock::release_writingprogram() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:HeaderBlock.writingprogram)
+  if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* released = _impl_.writingprogram_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.writingprogram_.Set("", GetArena());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
+}
+inline void HeaderBlock::set_allocated_writingprogram(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.writingprogram_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.writingprogram_.IsDefault()) {
+          _impl_.writingprogram_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:HeaderBlock.writingprogram)
+}
+
+// optional string source = 17;
+inline bool HeaderBlock::has_source() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void HeaderBlock::clear_source() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.source_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const std::string& HeaderBlock::source() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.source)
+  return _internal_source();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void HeaderBlock::set_source(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.source_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:HeaderBlock.source)
+}
+inline std::string* HeaderBlock::mutable_source() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_source();
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.source)
+  return _s;
+}
+inline const std::string& HeaderBlock::_internal_source() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.source_.Get();
+}
+inline void HeaderBlock::_internal_set_source(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.source_.Set(value, GetArena());
+}
+inline std::string* HeaderBlock::_internal_mutable_source() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  return _impl_.source_.Mutable( GetArena());
+}
+inline std::string* HeaderBlock::release_source() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:HeaderBlock.source)
+  if ((_impl_._has_bits_[0] & 0x00000002u) == 0) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  auto* released = _impl_.source_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.source_.Set("", GetArena());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
+}
+inline void HeaderBlock::set_allocated_source(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  _impl_.source_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.source_.IsDefault()) {
+          _impl_.source_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:HeaderBlock.source)
+}
+
+// optional int64 osmosis_replication_timestamp = 32;
+inline bool HeaderBlock::has_osmosis_replication_timestamp() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline void HeaderBlock::clear_osmosis_replication_timestamp() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.osmosis_replication_timestamp_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline ::int64_t HeaderBlock::osmosis_replication_timestamp() const {
+  // @@protoc_insertion_point(field_get:HeaderBlock.osmosis_replication_timestamp)
+  return _internal_osmosis_replication_timestamp();
+}
+inline void HeaderBlock::set_osmosis_replication_timestamp(::int64_t value) {
+  _internal_set_osmosis_replication_timestamp(value);
+  // @@protoc_insertion_point(field_set:HeaderBlock.osmosis_replication_timestamp)
+}
+inline ::int64_t HeaderBlock::_internal_osmosis_replication_timestamp() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.osmosis_replication_timestamp_;
+}
+inline void HeaderBlock::_internal_set_osmosis_replication_timestamp(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.osmosis_replication_timestamp_ = value;
+}
+
+// optional int64 osmosis_replication_sequence_number = 33;
+inline bool HeaderBlock::has_osmosis_replication_sequence_number() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline void HeaderBlock::clear_osmosis_replication_sequence_number() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.osmosis_replication_sequence_number_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline ::int64_t HeaderBlock::osmosis_replication_sequence_number() const {
+  // @@protoc_insertion_point(field_get:HeaderBlock.osmosis_replication_sequence_number)
+  return _internal_osmosis_replication_sequence_number();
+}
+inline void HeaderBlock::set_osmosis_replication_sequence_number(::int64_t value) {
+  _internal_set_osmosis_replication_sequence_number(value);
+  // @@protoc_insertion_point(field_set:HeaderBlock.osmosis_replication_sequence_number)
+}
+inline ::int64_t HeaderBlock::_internal_osmosis_replication_sequence_number() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.osmosis_replication_sequence_number_;
+}
+inline void HeaderBlock::_internal_set_osmosis_replication_sequence_number(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.osmosis_replication_sequence_number_ = value;
+}
+
+// optional string osmosis_replication_base_url = 34;
+inline bool HeaderBlock::has_osmosis_replication_base_url() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline void HeaderBlock::clear_osmosis_replication_base_url() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.osmosis_replication_base_url_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const std::string& HeaderBlock::osmosis_replication_base_url() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:HeaderBlock.osmosis_replication_base_url)
+  return _internal_osmosis_replication_base_url();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void HeaderBlock::set_osmosis_replication_base_url(Arg_&& arg,
+                                                     Args_... args) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.osmosis_replication_base_url_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:HeaderBlock.osmosis_replication_base_url)
+}
+inline std::string* HeaderBlock::mutable_osmosis_replication_base_url() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_osmosis_replication_base_url();
+  // @@protoc_insertion_point(field_mutable:HeaderBlock.osmosis_replication_base_url)
+  return _s;
+}
+inline const std::string& HeaderBlock::_internal_osmosis_replication_base_url() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.osmosis_replication_base_url_.Get();
+}
+inline void HeaderBlock::_internal_set_osmosis_replication_base_url(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.osmosis_replication_base_url_.Set(value, GetArena());
+}
+inline std::string* HeaderBlock::_internal_mutable_osmosis_replication_base_url() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  return _impl_.osmosis_replication_base_url_.Mutable( GetArena());
+}
+inline std::string* HeaderBlock::release_osmosis_replication_base_url() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:HeaderBlock.osmosis_replication_base_url)
+  if ((_impl_._has_bits_[0] & 0x00000004u) == 0) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  auto* released = _impl_.osmosis_replication_base_url_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.osmosis_replication_base_url_.Set("", GetArena());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
+}
+inline void HeaderBlock::set_allocated_osmosis_replication_base_url(std::string* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  _impl_.osmosis_replication_base_url_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.osmosis_replication_base_url_.IsDefault()) {
+          _impl_.osmosis_replication_base_url_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:HeaderBlock.osmosis_replication_base_url)
+}
+
+// -------------------------------------------------------------------
+
+// PrimitiveBlock
+
+// required .StringTable stringtable = 1;
+inline bool PrimitiveBlock::has_stringtable() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.stringtable_ != nullptr);
+  return value;
+}
+inline void PrimitiveBlock::clear_stringtable() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.stringtable_ != nullptr) _impl_.stringtable_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::StringTable& PrimitiveBlock::_internal_stringtable() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::StringTable* p = _impl_.stringtable_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StringTable&>(::_StringTable_default_instance_);
+}
+inline const ::StringTable& PrimitiveBlock::stringtable() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.stringtable)
+  return _internal_stringtable();
+}
+inline void PrimitiveBlock::unsafe_arena_set_allocated_stringtable(::StringTable* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.stringtable_);
+  }
+  _impl_.stringtable_ = reinterpret_cast<::StringTable*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PrimitiveBlock.stringtable)
+}
+inline ::StringTable* PrimitiveBlock::release_stringtable() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::StringTable* released = _impl_.stringtable_;
+  _impl_.stringtable_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::StringTable* PrimitiveBlock::unsafe_arena_release_stringtable() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:PrimitiveBlock.stringtable)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::StringTable* temp = _impl_.stringtable_;
+  _impl_.stringtable_ = nullptr;
+  return temp;
+}
+inline ::StringTable* PrimitiveBlock::_internal_mutable_stringtable() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.stringtable_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StringTable>(GetArena());
+    _impl_.stringtable_ = reinterpret_cast<::StringTable*>(p);
+  }
+  return _impl_.stringtable_;
+}
+inline ::StringTable* PrimitiveBlock::mutable_stringtable() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::StringTable* _msg = _internal_mutable_stringtable();
+  // @@protoc_insertion_point(field_mutable:PrimitiveBlock.stringtable)
+  return _msg;
+}
+inline void PrimitiveBlock::set_allocated_stringtable(::StringTable* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::StringTable*>(_impl_.stringtable_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::StringTable*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.stringtable_ = reinterpret_cast<::StringTable*>(value);
+  // @@protoc_insertion_point(field_set_allocated:PrimitiveBlock.stringtable)
+}
+
+// repeated .PrimitiveGroup primitivegroup = 2;
+inline int PrimitiveBlock::_internal_primitivegroup_size() const {
+  return _internal_primitivegroup().size();
+}
+inline int PrimitiveBlock::primitivegroup_size() const {
+  return _internal_primitivegroup_size();
+}
+inline void PrimitiveBlock::clear_primitivegroup() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.primitivegroup_.Clear();
+}
+inline ::PrimitiveGroup* PrimitiveBlock::mutable_primitivegroup(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:PrimitiveBlock.primitivegroup)
+  return _internal_mutable_primitivegroup()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>* PrimitiveBlock::mutable_primitivegroup()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:PrimitiveBlock.primitivegroup)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_primitivegroup();
+}
+inline const ::PrimitiveGroup& PrimitiveBlock::primitivegroup(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.primitivegroup)
+  return _internal_primitivegroup().Get(index);
+}
+inline ::PrimitiveGroup* PrimitiveBlock::add_primitivegroup() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::PrimitiveGroup* _add = _internal_mutable_primitivegroup()->Add();
+  // @@protoc_insertion_point(field_add:PrimitiveBlock.primitivegroup)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>& PrimitiveBlock::primitivegroup() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:PrimitiveBlock.primitivegroup)
+  return _internal_primitivegroup();
+}
+inline const ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>&
+PrimitiveBlock::_internal_primitivegroup() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.primitivegroup_;
+}
+inline ::google::protobuf::RepeatedPtrField<::PrimitiveGroup>*
+PrimitiveBlock::_internal_mutable_primitivegroup() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.primitivegroup_;
+}
+
+// optional int32 granularity = 17 [default = 100];
+inline bool PrimitiveBlock::has_granularity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline void PrimitiveBlock::clear_granularity() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.granularity_ = 100;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::int32_t PrimitiveBlock::granularity() const {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.granularity)
+  return _internal_granularity();
+}
+inline void PrimitiveBlock::set_granularity(::int32_t value) {
+  _internal_set_granularity(value);
+  // @@protoc_insertion_point(field_set:PrimitiveBlock.granularity)
+}
+inline ::int32_t PrimitiveBlock::_internal_granularity() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.granularity_;
+}
+inline void PrimitiveBlock::_internal_set_granularity(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.granularity_ = value;
+}
+
+// optional int64 lat_offset = 19 [default = 0];
+inline bool PrimitiveBlock::has_lat_offset() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void PrimitiveBlock::clear_lat_offset() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lat_offset_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int64_t PrimitiveBlock::lat_offset() const {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.lat_offset)
+  return _internal_lat_offset();
+}
+inline void PrimitiveBlock::set_lat_offset(::int64_t value) {
+  _internal_set_lat_offset(value);
+  // @@protoc_insertion_point(field_set:PrimitiveBlock.lat_offset)
+}
+inline ::int64_t PrimitiveBlock::_internal_lat_offset() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lat_offset_;
+}
+inline void PrimitiveBlock::_internal_set_lat_offset(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.lat_offset_ = value;
+}
+
+// optional int64 lon_offset = 20 [default = 0];
+inline bool PrimitiveBlock::has_lon_offset() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline void PrimitiveBlock::clear_lon_offset() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lon_offset_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::int64_t PrimitiveBlock::lon_offset() const {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.lon_offset)
+  return _internal_lon_offset();
+}
+inline void PrimitiveBlock::set_lon_offset(::int64_t value) {
+  _internal_set_lon_offset(value);
+  // @@protoc_insertion_point(field_set:PrimitiveBlock.lon_offset)
+}
+inline ::int64_t PrimitiveBlock::_internal_lon_offset() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lon_offset_;
+}
+inline void PrimitiveBlock::_internal_set_lon_offset(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.lon_offset_ = value;
+}
+
+// optional int32 date_granularity = 18 [default = 1000];
+inline bool PrimitiveBlock::has_date_granularity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline void PrimitiveBlock::clear_date_granularity() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.date_granularity_ = 1000;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline ::int32_t PrimitiveBlock::date_granularity() const {
+  // @@protoc_insertion_point(field_get:PrimitiveBlock.date_granularity)
+  return _internal_date_granularity();
+}
+inline void PrimitiveBlock::set_date_granularity(::int32_t value) {
+  _internal_set_date_granularity(value);
+  // @@protoc_insertion_point(field_set:PrimitiveBlock.date_granularity)
+}
+inline ::int32_t PrimitiveBlock::_internal_date_granularity() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.date_granularity_;
+}
+inline void PrimitiveBlock::_internal_set_date_granularity(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.date_granularity_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PrimitiveGroup
+
+// repeated .Node nodes = 1;
+inline int PrimitiveGroup::_internal_nodes_size() const {
+  return _internal_nodes().size();
+}
+inline int PrimitiveGroup::nodes_size() const {
+  return _internal_nodes_size();
+}
+inline void PrimitiveGroup::clear_nodes() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.nodes_.Clear();
+}
+inline ::Node* PrimitiveGroup::mutable_nodes(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:PrimitiveGroup.nodes)
+  return _internal_mutable_nodes()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::Node>* PrimitiveGroup::mutable_nodes()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:PrimitiveGroup.nodes)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_nodes();
+}
+inline const ::Node& PrimitiveGroup::nodes(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveGroup.nodes)
+  return _internal_nodes().Get(index);
+}
+inline ::Node* PrimitiveGroup::add_nodes() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::Node* _add = _internal_mutable_nodes()->Add();
+  // @@protoc_insertion_point(field_add:PrimitiveGroup.nodes)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::Node>& PrimitiveGroup::nodes() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:PrimitiveGroup.nodes)
+  return _internal_nodes();
+}
+inline const ::google::protobuf::RepeatedPtrField<::Node>&
+PrimitiveGroup::_internal_nodes() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.nodes_;
+}
+inline ::google::protobuf::RepeatedPtrField<::Node>*
+PrimitiveGroup::_internal_mutable_nodes() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.nodes_;
+}
+
+// optional .DenseNodes dense = 2;
+inline bool PrimitiveGroup::has_dense() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.dense_ != nullptr);
+  return value;
+}
+inline void PrimitiveGroup::clear_dense() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.dense_ != nullptr) _impl_.dense_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::DenseNodes& PrimitiveGroup::_internal_dense() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::DenseNodes* p = _impl_.dense_;
+  return p != nullptr ? *p : reinterpret_cast<const ::DenseNodes&>(::_DenseNodes_default_instance_);
+}
+inline const ::DenseNodes& PrimitiveGroup::dense() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveGroup.dense)
+  return _internal_dense();
+}
+inline void PrimitiveGroup::unsafe_arena_set_allocated_dense(::DenseNodes* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.dense_);
+  }
+  _impl_.dense_ = reinterpret_cast<::DenseNodes*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PrimitiveGroup.dense)
+}
+inline ::DenseNodes* PrimitiveGroup::release_dense() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DenseNodes* released = _impl_.dense_;
+  _impl_.dense_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::DenseNodes* PrimitiveGroup::unsafe_arena_release_dense() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:PrimitiveGroup.dense)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DenseNodes* temp = _impl_.dense_;
+  _impl_.dense_ = nullptr;
+  return temp;
+}
+inline ::DenseNodes* PrimitiveGroup::_internal_mutable_dense() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.dense_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DenseNodes>(GetArena());
+    _impl_.dense_ = reinterpret_cast<::DenseNodes*>(p);
+  }
+  return _impl_.dense_;
+}
+inline ::DenseNodes* PrimitiveGroup::mutable_dense() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::DenseNodes* _msg = _internal_mutable_dense();
+  // @@protoc_insertion_point(field_mutable:PrimitiveGroup.dense)
+  return _msg;
+}
+inline void PrimitiveGroup::set_allocated_dense(::DenseNodes* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::DenseNodes*>(_impl_.dense_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::DenseNodes*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.dense_ = reinterpret_cast<::DenseNodes*>(value);
+  // @@protoc_insertion_point(field_set_allocated:PrimitiveGroup.dense)
+}
+
+// repeated .Way ways = 3;
+inline int PrimitiveGroup::_internal_ways_size() const {
+  return _internal_ways().size();
+}
+inline int PrimitiveGroup::ways_size() const {
+  return _internal_ways_size();
+}
+inline void PrimitiveGroup::clear_ways() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.ways_.Clear();
+}
+inline ::Way* PrimitiveGroup::mutable_ways(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:PrimitiveGroup.ways)
+  return _internal_mutable_ways()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::Way>* PrimitiveGroup::mutable_ways()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:PrimitiveGroup.ways)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_ways();
+}
+inline const ::Way& PrimitiveGroup::ways(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveGroup.ways)
+  return _internal_ways().Get(index);
+}
+inline ::Way* PrimitiveGroup::add_ways() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::Way* _add = _internal_mutable_ways()->Add();
+  // @@protoc_insertion_point(field_add:PrimitiveGroup.ways)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::Way>& PrimitiveGroup::ways() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:PrimitiveGroup.ways)
+  return _internal_ways();
+}
+inline const ::google::protobuf::RepeatedPtrField<::Way>&
+PrimitiveGroup::_internal_ways() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.ways_;
+}
+inline ::google::protobuf::RepeatedPtrField<::Way>*
+PrimitiveGroup::_internal_mutable_ways() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.ways_;
+}
+
+// repeated .Relation relations = 4;
+inline int PrimitiveGroup::_internal_relations_size() const {
+  return _internal_relations().size();
+}
+inline int PrimitiveGroup::relations_size() const {
+  return _internal_relations_size();
+}
+inline void PrimitiveGroup::clear_relations() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.relations_.Clear();
+}
+inline ::Relation* PrimitiveGroup::mutable_relations(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:PrimitiveGroup.relations)
+  return _internal_mutable_relations()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::Relation>* PrimitiveGroup::mutable_relations()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:PrimitiveGroup.relations)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_relations();
+}
+inline const ::Relation& PrimitiveGroup::relations(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveGroup.relations)
+  return _internal_relations().Get(index);
+}
+inline ::Relation* PrimitiveGroup::add_relations() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::Relation* _add = _internal_mutable_relations()->Add();
+  // @@protoc_insertion_point(field_add:PrimitiveGroup.relations)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::Relation>& PrimitiveGroup::relations() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:PrimitiveGroup.relations)
+  return _internal_relations();
+}
+inline const ::google::protobuf::RepeatedPtrField<::Relation>&
+PrimitiveGroup::_internal_relations() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.relations_;
+}
+inline ::google::protobuf::RepeatedPtrField<::Relation>*
+PrimitiveGroup::_internal_mutable_relations() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.relations_;
+}
+
+// repeated .ChangeSet changesets = 5;
+inline int PrimitiveGroup::_internal_changesets_size() const {
+  return _internal_changesets().size();
+}
+inline int PrimitiveGroup::changesets_size() const {
+  return _internal_changesets_size();
+}
+inline void PrimitiveGroup::clear_changesets() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.changesets_.Clear();
+}
+inline ::ChangeSet* PrimitiveGroup::mutable_changesets(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:PrimitiveGroup.changesets)
+  return _internal_mutable_changesets()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::ChangeSet>* PrimitiveGroup::mutable_changesets()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:PrimitiveGroup.changesets)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_changesets();
+}
+inline const ::ChangeSet& PrimitiveGroup::changesets(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PrimitiveGroup.changesets)
+  return _internal_changesets().Get(index);
+}
+inline ::ChangeSet* PrimitiveGroup::add_changesets() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  ::ChangeSet* _add = _internal_mutable_changesets()->Add();
+  // @@protoc_insertion_point(field_add:PrimitiveGroup.changesets)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::ChangeSet>& PrimitiveGroup::changesets() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:PrimitiveGroup.changesets)
+  return _internal_changesets();
+}
+inline const ::google::protobuf::RepeatedPtrField<::ChangeSet>&
+PrimitiveGroup::_internal_changesets() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.changesets_;
+}
+inline ::google::protobuf::RepeatedPtrField<::ChangeSet>*
+PrimitiveGroup::_internal_mutable_changesets() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.changesets_;
+}
+
+// -------------------------------------------------------------------
+
+// Node
+
+// required sint64 id = 1;
+inline bool Node::has_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void Node::clear_id() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.id_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int64_t Node::id() const {
+  // @@protoc_insertion_point(field_get:Node.id)
+  return _internal_id();
+}
+inline void Node::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:Node.id)
+}
+inline ::int64_t Node::_internal_id() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.id_;
+}
+inline void Node::_internal_set_id(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.id_ = value;
+}
+
+// repeated uint32 keys = 2 [packed = true];
+inline int Node::_internal_keys_size() const {
+  return _internal_keys().size();
+}
+inline int Node::keys_size() const {
+  return _internal_keys_size();
+}
+inline void Node::clear_keys() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.keys_.Clear();
+}
+inline ::uint32_t Node::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Node.keys)
+  return _internal_keys().Get(index);
+}
+inline void Node::set_keys(int index, ::uint32_t value) {
+  _internal_mutable_keys()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Node.keys)
+}
+inline void Node::add_keys(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_keys()->Add(value);
+  // @@protoc_insertion_point(field_add:Node.keys)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Node::keys() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Node.keys)
+  return _internal_keys();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Node::mutable_keys()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Node.keys)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_keys();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Node::_internal_keys()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.keys_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Node::_internal_mutable_keys() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.keys_;
+}
+
+// repeated uint32 vals = 3 [packed = true];
+inline int Node::_internal_vals_size() const {
+  return _internal_vals().size();
+}
+inline int Node::vals_size() const {
+  return _internal_vals_size();
+}
+inline void Node::clear_vals() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.vals_.Clear();
+}
+inline ::uint32_t Node::vals(int index) const {
+  // @@protoc_insertion_point(field_get:Node.vals)
+  return _internal_vals().Get(index);
+}
+inline void Node::set_vals(int index, ::uint32_t value) {
+  _internal_mutable_vals()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Node.vals)
+}
+inline void Node::add_vals(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_vals()->Add(value);
+  // @@protoc_insertion_point(field_add:Node.vals)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Node::vals() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Node.vals)
+  return _internal_vals();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Node::mutable_vals()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Node.vals)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_vals();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Node::_internal_vals()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.vals_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Node::_internal_mutable_vals() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.vals_;
+}
+
+// optional .Info info = 4;
+inline bool Node::has_info() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.info_ != nullptr);
+  return value;
+}
+inline void Node::clear_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.info_ != nullptr) _impl_.info_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Info& Node::_internal_info() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::Info* p = _impl_.info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Info&>(::_Info_default_instance_);
+}
+inline const ::Info& Node::info() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:Node.info)
+  return _internal_info();
+}
+inline void Node::unsafe_arena_set_allocated_info(::Info* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.info_);
+  }
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Node.info)
+}
+inline ::Info* Node::release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* released = _impl_.info_;
+  _impl_.info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::Info* Node::unsafe_arena_release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:Node.info)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+  return temp;
+}
+inline ::Info* Node::_internal_mutable_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Info>(GetArena());
+    _impl_.info_ = reinterpret_cast<::Info*>(p);
+  }
+  return _impl_.info_;
+}
+inline ::Info* Node::mutable_info() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::Info* _msg = _internal_mutable_info();
+  // @@protoc_insertion_point(field_mutable:Node.info)
+  return _msg;
+}
+inline void Node::set_allocated_info(::Info* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::Info*>(_impl_.info_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::Info*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  // @@protoc_insertion_point(field_set_allocated:Node.info)
+}
+
+// required sint64 lat = 8;
+inline bool Node::has_lat() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline void Node::clear_lat() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lat_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::int64_t Node::lat() const {
+  // @@protoc_insertion_point(field_get:Node.lat)
+  return _internal_lat();
+}
+inline void Node::set_lat(::int64_t value) {
+  _internal_set_lat(value);
+  // @@protoc_insertion_point(field_set:Node.lat)
+}
+inline ::int64_t Node::_internal_lat() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lat_;
+}
+inline void Node::_internal_set_lat(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.lat_ = value;
+}
+
+// required sint64 lon = 9;
+inline bool Node::has_lon() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline void Node::clear_lon() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lon_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::int64_t Node::lon() const {
+  // @@protoc_insertion_point(field_get:Node.lon)
+  return _internal_lon();
+}
+inline void Node::set_lon(::int64_t value) {
+  _internal_set_lon(value);
+  // @@protoc_insertion_point(field_set:Node.lon)
+}
+inline ::int64_t Node::_internal_lon() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lon_;
+}
+inline void Node::_internal_set_lon(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.lon_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ChangeSet
+
+// required int64 id = 1;
+inline bool ChangeSet::has_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline void ChangeSet::clear_id() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.id_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::int64_t ChangeSet::id() const {
+  // @@protoc_insertion_point(field_get:ChangeSet.id)
+  return _internal_id();
+}
+inline void ChangeSet::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:ChangeSet.id)
+}
+inline ::int64_t ChangeSet::_internal_id() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.id_;
+}
+inline void ChangeSet::_internal_set_id(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Way
+
+// required int64 id = 1;
+inline bool Way::has_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void Way::clear_id() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.id_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int64_t Way::id() const {
+  // @@protoc_insertion_point(field_get:Way.id)
+  return _internal_id();
+}
+inline void Way::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:Way.id)
+}
+inline ::int64_t Way::_internal_id() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.id_;
+}
+inline void Way::_internal_set_id(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.id_ = value;
+}
+
+// repeated uint32 keys = 2 [packed = true];
+inline int Way::_internal_keys_size() const {
+  return _internal_keys().size();
+}
+inline int Way::keys_size() const {
+  return _internal_keys_size();
+}
+inline void Way::clear_keys() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.keys_.Clear();
+}
+inline ::uint32_t Way::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Way.keys)
+  return _internal_keys().Get(index);
+}
+inline void Way::set_keys(int index, ::uint32_t value) {
+  _internal_mutable_keys()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Way.keys)
+}
+inline void Way::add_keys(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_keys()->Add(value);
+  // @@protoc_insertion_point(field_add:Way.keys)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Way::keys() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Way.keys)
+  return _internal_keys();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Way::mutable_keys()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Way.keys)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_keys();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Way::_internal_keys()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.keys_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Way::_internal_mutable_keys() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.keys_;
+}
+
+// repeated uint32 vals = 3 [packed = true];
+inline int Way::_internal_vals_size() const {
+  return _internal_vals().size();
+}
+inline int Way::vals_size() const {
+  return _internal_vals_size();
+}
+inline void Way::clear_vals() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.vals_.Clear();
+}
+inline ::uint32_t Way::vals(int index) const {
+  // @@protoc_insertion_point(field_get:Way.vals)
+  return _internal_vals().Get(index);
+}
+inline void Way::set_vals(int index, ::uint32_t value) {
+  _internal_mutable_vals()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Way.vals)
+}
+inline void Way::add_vals(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_vals()->Add(value);
+  // @@protoc_insertion_point(field_add:Way.vals)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Way::vals() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Way.vals)
+  return _internal_vals();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Way::mutable_vals()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Way.vals)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_vals();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Way::_internal_vals()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.vals_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Way::_internal_mutable_vals() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.vals_;
+}
+
+// optional .Info info = 4;
+inline bool Way::has_info() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.info_ != nullptr);
+  return value;
+}
+inline void Way::clear_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.info_ != nullptr) _impl_.info_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Info& Way::_internal_info() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::Info* p = _impl_.info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Info&>(::_Info_default_instance_);
+}
+inline const ::Info& Way::info() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:Way.info)
+  return _internal_info();
+}
+inline void Way::unsafe_arena_set_allocated_info(::Info* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.info_);
+  }
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Way.info)
+}
+inline ::Info* Way::release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* released = _impl_.info_;
+  _impl_.info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::Info* Way::unsafe_arena_release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:Way.info)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+  return temp;
+}
+inline ::Info* Way::_internal_mutable_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Info>(GetArena());
+    _impl_.info_ = reinterpret_cast<::Info*>(p);
+  }
+  return _impl_.info_;
+}
+inline ::Info* Way::mutable_info() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::Info* _msg = _internal_mutable_info();
+  // @@protoc_insertion_point(field_mutable:Way.info)
+  return _msg;
+}
+inline void Way::set_allocated_info(::Info* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::Info*>(_impl_.info_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::Info*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  // @@protoc_insertion_point(field_set_allocated:Way.info)
+}
+
+// repeated sint64 refs = 8 [packed = true];
+inline int Way::_internal_refs_size() const {
+  return _internal_refs().size();
+}
+inline int Way::refs_size() const {
+  return _internal_refs_size();
+}
+inline void Way::clear_refs() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.refs_.Clear();
+}
+inline ::int64_t Way::refs(int index) const {
+  // @@protoc_insertion_point(field_get:Way.refs)
+  return _internal_refs().Get(index);
+}
+inline void Way::set_refs(int index, ::int64_t value) {
+  _internal_mutable_refs()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Way.refs)
+}
+inline void Way::add_refs(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_refs()->Add(value);
+  // @@protoc_insertion_point(field_add:Way.refs)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::refs() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Way.refs)
+  return _internal_refs();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::mutable_refs()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Way.refs)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_refs();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::_internal_refs()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.refs_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::_internal_mutable_refs() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.refs_;
+}
+
+// repeated sint64 lat = 9 [packed = true];
+inline int Way::_internal_lat_size() const {
+  return _internal_lat().size();
+}
+inline int Way::lat_size() const {
+  return _internal_lat_size();
+}
+inline void Way::clear_lat() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lat_.Clear();
+}
+inline ::int64_t Way::lat(int index) const {
+  // @@protoc_insertion_point(field_get:Way.lat)
+  return _internal_lat().Get(index);
+}
+inline void Way::set_lat(int index, ::int64_t value) {
+  _internal_mutable_lat()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Way.lat)
+}
+inline void Way::add_lat(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_lat()->Add(value);
+  // @@protoc_insertion_point(field_add:Way.lat)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::lat() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Way.lat)
+  return _internal_lat();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::mutable_lat()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Way.lat)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_lat();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::_internal_lat()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lat_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::_internal_mutable_lat() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.lat_;
+}
+
+// repeated sint64 lon = 10 [packed = true];
+inline int Way::_internal_lon_size() const {
+  return _internal_lon().size();
+}
+inline int Way::lon_size() const {
+  return _internal_lon_size();
+}
+inline void Way::clear_lon() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lon_.Clear();
+}
+inline ::int64_t Way::lon(int index) const {
+  // @@protoc_insertion_point(field_get:Way.lon)
+  return _internal_lon().Get(index);
+}
+inline void Way::set_lon(int index, ::int64_t value) {
+  _internal_mutable_lon()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Way.lon)
+}
+inline void Way::add_lon(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_lon()->Add(value);
+  // @@protoc_insertion_point(field_add:Way.lon)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::lon() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Way.lon)
+  return _internal_lon();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::mutable_lon()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Way.lon)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_lon();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Way::_internal_lon()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lon_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Way::_internal_mutable_lon() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.lon_;
+}
+
+// -------------------------------------------------------------------
+
+// Relation
+
+// required int64 id = 1;
+inline bool Relation::has_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void Relation::clear_id() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.id_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int64_t Relation::id() const {
+  // @@protoc_insertion_point(field_get:Relation.id)
+  return _internal_id();
+}
+inline void Relation::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:Relation.id)
+}
+inline ::int64_t Relation::_internal_id() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.id_;
+}
+inline void Relation::_internal_set_id(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.id_ = value;
+}
+
+// repeated uint32 keys = 2 [packed = true];
+inline int Relation::_internal_keys_size() const {
+  return _internal_keys().size();
+}
+inline int Relation::keys_size() const {
+  return _internal_keys_size();
+}
+inline void Relation::clear_keys() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.keys_.Clear();
+}
+inline ::uint32_t Relation::keys(int index) const {
+  // @@protoc_insertion_point(field_get:Relation.keys)
+  return _internal_keys().Get(index);
+}
+inline void Relation::set_keys(int index, ::uint32_t value) {
+  _internal_mutable_keys()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Relation.keys)
+}
+inline void Relation::add_keys(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_keys()->Add(value);
+  // @@protoc_insertion_point(field_add:Relation.keys)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Relation::keys() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Relation.keys)
+  return _internal_keys();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Relation::mutable_keys()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Relation.keys)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_keys();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Relation::_internal_keys()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.keys_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Relation::_internal_mutable_keys() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.keys_;
+}
+
+// repeated uint32 vals = 3 [packed = true];
+inline int Relation::_internal_vals_size() const {
+  return _internal_vals().size();
+}
+inline int Relation::vals_size() const {
+  return _internal_vals_size();
+}
+inline void Relation::clear_vals() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.vals_.Clear();
+}
+inline ::uint32_t Relation::vals(int index) const {
+  // @@protoc_insertion_point(field_get:Relation.vals)
+  return _internal_vals().Get(index);
+}
+inline void Relation::set_vals(int index, ::uint32_t value) {
+  _internal_mutable_vals()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Relation.vals)
+}
+inline void Relation::add_vals(::uint32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_vals()->Add(value);
+  // @@protoc_insertion_point(field_add:Relation.vals)
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Relation::vals() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Relation.vals)
+  return _internal_vals();
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Relation::mutable_vals()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Relation.vals)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_vals();
+}
+inline const ::google::protobuf::RepeatedField<::uint32_t>& Relation::_internal_vals()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.vals_;
+}
+inline ::google::protobuf::RepeatedField<::uint32_t>* Relation::_internal_mutable_vals() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.vals_;
+}
+
+// optional .Info info = 4;
+inline bool Relation::has_info() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.info_ != nullptr);
+  return value;
+}
+inline void Relation::clear_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.info_ != nullptr) _impl_.info_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::Info& Relation::_internal_info() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::Info* p = _impl_.info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Info&>(::_Info_default_instance_);
+}
+inline const ::Info& Relation::info() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:Relation.info)
+  return _internal_info();
+}
+inline void Relation::unsafe_arena_set_allocated_info(::Info* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.info_);
+  }
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Relation.info)
+}
+inline ::Info* Relation::release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* released = _impl_.info_;
+  _impl_.info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::Info* Relation::unsafe_arena_release_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:Relation.info)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::Info* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+  return temp;
+}
+inline ::Info* Relation::_internal_mutable_info() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Info>(GetArena());
+    _impl_.info_ = reinterpret_cast<::Info*>(p);
+  }
+  return _impl_.info_;
+}
+inline ::Info* Relation::mutable_info() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::Info* _msg = _internal_mutable_info();
+  // @@protoc_insertion_point(field_mutable:Relation.info)
+  return _msg;
+}
+inline void Relation::set_allocated_info(::Info* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::Info*>(_impl_.info_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::Info*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.info_ = reinterpret_cast<::Info*>(value);
+  // @@protoc_insertion_point(field_set_allocated:Relation.info)
+}
+
+// repeated int32 roles_sid = 8 [packed = true];
+inline int Relation::_internal_roles_sid_size() const {
+  return _internal_roles_sid().size();
+}
+inline int Relation::roles_sid_size() const {
+  return _internal_roles_sid_size();
+}
+inline void Relation::clear_roles_sid() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.roles_sid_.Clear();
+}
+inline ::int32_t Relation::roles_sid(int index) const {
+  // @@protoc_insertion_point(field_get:Relation.roles_sid)
+  return _internal_roles_sid().Get(index);
+}
+inline void Relation::set_roles_sid(int index, ::int32_t value) {
+  _internal_mutable_roles_sid()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Relation.roles_sid)
+}
+inline void Relation::add_roles_sid(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_roles_sid()->Add(value);
+  // @@protoc_insertion_point(field_add:Relation.roles_sid)
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& Relation::roles_sid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Relation.roles_sid)
+  return _internal_roles_sid();
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* Relation::mutable_roles_sid()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Relation.roles_sid)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_roles_sid();
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& Relation::_internal_roles_sid()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.roles_sid_;
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* Relation::_internal_mutable_roles_sid() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.roles_sid_;
+}
+
+// repeated sint64 memids = 9 [packed = true];
+inline int Relation::_internal_memids_size() const {
+  return _internal_memids().size();
+}
+inline int Relation::memids_size() const {
+  return _internal_memids_size();
+}
+inline void Relation::clear_memids() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.memids_.Clear();
+}
+inline ::int64_t Relation::memids(int index) const {
+  // @@protoc_insertion_point(field_get:Relation.memids)
+  return _internal_memids().Get(index);
+}
+inline void Relation::set_memids(int index, ::int64_t value) {
+  _internal_mutable_memids()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Relation.memids)
+}
+inline void Relation::add_memids(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_memids()->Add(value);
+  // @@protoc_insertion_point(field_add:Relation.memids)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Relation::memids() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Relation.memids)
+  return _internal_memids();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Relation::mutable_memids()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Relation.memids)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_memids();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& Relation::_internal_memids()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.memids_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* Relation::_internal_mutable_memids() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.memids_;
+}
+
+// repeated .Relation.MemberType types = 10 [packed = true];
+inline int Relation::_internal_types_size() const {
+  return _internal_types().size();
+}
+inline int Relation::types_size() const {
+  return _internal_types_size();
+}
+inline void Relation::clear_types() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.types_.Clear();
+}
+inline ::Relation_MemberType Relation::types(int index) const {
+  // @@protoc_insertion_point(field_get:Relation.types)
+  return static_cast<::Relation_MemberType>(_internal_types().Get(index));
+}
+inline void Relation::set_types(int index, ::Relation_MemberType value) {
+  assert(::Relation_MemberType_IsValid(value));
+  _internal_mutable_types()->Set(index, value);
+  // @@protoc_insertion_point(field_set:Relation.types)
+}
+inline void Relation::add_types(::Relation_MemberType value) {
+  assert(::Relation_MemberType_IsValid(value));
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_types()->Add(value);
+  // @@protoc_insertion_point(field_add:Relation.types)
+}
+inline const ::google::protobuf::RepeatedField<int>& Relation::types() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:Relation.types)
+  return _internal_types();
+}
+inline ::google::protobuf::RepeatedField<int>* Relation::mutable_types()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:Relation.types)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_types();
+}
+inline const ::google::protobuf::RepeatedField<int>& Relation::_internal_types() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.types_;
+}
+inline ::google::protobuf::RepeatedField<int>* Relation::_internal_mutable_types() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.types_;
+}
+
+// -------------------------------------------------------------------
+
+// Info
+
+// optional int32 version = 1 [default = -1];
+inline bool Info::has_version() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  return value;
+}
+inline void Info::clear_version() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.version_ = -1;
+  _impl_._has_bits_[0] &= ~0x00000020u;
+}
+inline ::int32_t Info::version() const {
+  // @@protoc_insertion_point(field_get:Info.version)
+  return _internal_version();
+}
+inline void Info::set_version(::int32_t value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:Info.version)
+}
+inline ::int32_t Info::_internal_version() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.version_;
+}
+inline void Info::_internal_set_version(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.version_ = value;
+}
+
+// optional int32 timestamp = 2;
+inline bool Info::has_timestamp() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline void Info::clear_timestamp() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.timestamp_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline ::int32_t Info::timestamp() const {
+  // @@protoc_insertion_point(field_get:Info.timestamp)
+  return _internal_timestamp();
+}
+inline void Info::set_timestamp(::int32_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:Info.timestamp)
+}
+inline ::int32_t Info::_internal_timestamp() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.timestamp_;
+}
+inline void Info::_internal_set_timestamp(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.timestamp_ = value;
+}
+
+// optional int64 changeset = 3;
+inline bool Info::has_changeset() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline void Info::clear_changeset() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.changeset_ = ::int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::int64_t Info::changeset() const {
+  // @@protoc_insertion_point(field_get:Info.changeset)
+  return _internal_changeset();
+}
+inline void Info::set_changeset(::int64_t value) {
+  _internal_set_changeset(value);
+  // @@protoc_insertion_point(field_set:Info.changeset)
+}
+inline ::int64_t Info::_internal_changeset() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.changeset_;
+}
+inline void Info::_internal_set_changeset(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.changeset_ = value;
+}
+
+// optional int32 uid = 4;
+inline bool Info::has_uid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline void Info::clear_uid() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.uid_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::int32_t Info::uid() const {
+  // @@protoc_insertion_point(field_get:Info.uid)
+  return _internal_uid();
+}
+inline void Info::set_uid(::int32_t value) {
+  _internal_set_uid(value);
+  // @@protoc_insertion_point(field_set:Info.uid)
+}
+inline ::int32_t Info::_internal_uid() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.uid_;
+}
+inline void Info::_internal_set_uid(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.uid_ = value;
+}
+
+// optional int32 user_sid = 5;
+inline bool Info::has_user_sid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline void Info::clear_user_sid() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.user_sid_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::int32_t Info::user_sid() const {
+  // @@protoc_insertion_point(field_get:Info.user_sid)
+  return _internal_user_sid();
+}
+inline void Info::set_user_sid(::int32_t value) {
+  _internal_set_user_sid(value);
+  // @@protoc_insertion_point(field_set:Info.user_sid)
+}
+inline ::int32_t Info::_internal_user_sid() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.user_sid_;
+}
+inline void Info::_internal_set_user_sid(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.user_sid_ = value;
+}
+
+// optional bool visible = 6;
+inline bool Info::has_visible() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline void Info::clear_visible() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.visible_ = false;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline bool Info::visible() const {
+  // @@protoc_insertion_point(field_get:Info.visible)
+  return _internal_visible();
+}
+inline void Info::set_visible(bool value) {
+  _internal_set_visible(value);
+  // @@protoc_insertion_point(field_set:Info.visible)
+}
+inline bool Info::_internal_visible() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.visible_;
+}
+inline void Info::_internal_set_visible(bool value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.visible_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StringTable
+
+// repeated bytes s = 1;
+inline int StringTable::_internal_s_size() const {
+  return _internal_s().size();
+}
+inline int StringTable::s_size() const {
+  return _internal_s_size();
+}
+inline void StringTable::clear_s() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.s_.Clear();
+}
+inline std::string* StringTable::add_s()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  std::string* _s = _internal_mutable_s()->Add();
+  // @@protoc_insertion_point(field_add_mutable:StringTable.s)
+  return _s;
+}
+inline const std::string& StringTable::s(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:StringTable.s)
+  return _internal_s().Get(index);
+}
+inline std::string* StringTable::mutable_s(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:StringTable.s)
+  return _internal_mutable_s()->Mutable(index);
+}
+inline void StringTable::set_s(int index, const std::string& value) {
+  _internal_mutable_s()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:StringTable.s)
+}
+inline void StringTable::set_s(int index, std::string&& value) {
+  _internal_mutable_s()->Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:StringTable.s)
+}
+inline void StringTable::set_s(int index, const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  _internal_mutable_s()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:StringTable.s)
+}
+inline void StringTable::set_s(int index, const void* value,
+                              std::size_t size) {
+  _internal_mutable_s()->Mutable(index)->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:StringTable.s)
+}
+inline void StringTable::set_s(int index, absl::string_view value) {
+  _internal_mutable_s()->Mutable(index)->assign(value.data(),
+                                                     value.size());
+  // @@protoc_insertion_point(field_set_string_piece:StringTable.s)
+}
+inline void StringTable::add_s(const std::string& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_s()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add:StringTable.s)
+}
+inline void StringTable::add_s(std::string&& value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_s()->Add(std::move(value));
+  // @@protoc_insertion_point(field_add:StringTable.s)
+}
+inline void StringTable::add_s(const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_s()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:StringTable.s)
+}
+inline void StringTable::add_s(const void* value, std::size_t size) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_s()->Add()->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:StringTable.s)
+}
+inline void StringTable::add_s(absl::string_view value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_s()->Add()->assign(value.data(), value.size());
+  // @@protoc_insertion_point(field_add_string_piece:StringTable.s)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+StringTable::s() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StringTable.s)
+  return _internal_s();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+StringTable::mutable_s() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StringTable.s)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_s();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+StringTable::_internal_s() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.s_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+StringTable::_internal_mutable_s() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.s_;
+}
+
+// -------------------------------------------------------------------
+
+// DenseNodes
+
+// repeated sint64 id = 1 [packed = true];
+inline int DenseNodes::_internal_id_size() const {
+  return _internal_id().size();
+}
+inline int DenseNodes::id_size() const {
+  return _internal_id_size();
+}
+inline void DenseNodes::clear_id() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.id_.Clear();
+}
+inline ::int64_t DenseNodes::id(int index) const {
+  // @@protoc_insertion_point(field_get:DenseNodes.id)
+  return _internal_id().Get(index);
+}
+inline void DenseNodes::set_id(int index, ::int64_t value) {
+  _internal_mutable_id()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseNodes.id)
+}
+inline void DenseNodes::add_id(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_id()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseNodes.id)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseNodes.id)
+  return _internal_id();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::mutable_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseNodes.id)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_id();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::_internal_id()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.id_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::_internal_mutable_id() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.id_;
+}
+
+// optional .DenseInfo denseinfo = 5;
+inline bool DenseNodes::has_denseinfo() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.denseinfo_ != nullptr);
+  return value;
+}
+inline void DenseNodes::clear_denseinfo() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (_impl_.denseinfo_ != nullptr) _impl_.denseinfo_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::DenseInfo& DenseNodes::_internal_denseinfo() const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  const ::DenseInfo* p = _impl_.denseinfo_;
+  return p != nullptr ? *p : reinterpret_cast<const ::DenseInfo&>(::_DenseInfo_default_instance_);
+}
+inline const ::DenseInfo& DenseNodes::denseinfo() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:DenseNodes.denseinfo)
+  return _internal_denseinfo();
+}
+inline void DenseNodes::unsafe_arena_set_allocated_denseinfo(::DenseInfo* value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.denseinfo_);
+  }
+  _impl_.denseinfo_ = reinterpret_cast<::DenseInfo*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:DenseNodes.denseinfo)
+}
+inline ::DenseInfo* DenseNodes::release_denseinfo() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DenseInfo* released = _impl_.denseinfo_;
+  _impl_.denseinfo_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::DenseInfo* DenseNodes::unsafe_arena_release_denseinfo() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  // @@protoc_insertion_point(field_release:DenseNodes.denseinfo)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::DenseInfo* temp = _impl_.denseinfo_;
+  _impl_.denseinfo_ = nullptr;
+  return temp;
+}
+inline ::DenseInfo* DenseNodes::_internal_mutable_denseinfo() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_._has_bits_[0] |= 0x00000001u;
+  if (_impl_.denseinfo_ == nullptr) {
+    auto* p = CreateMaybeMessage<::DenseInfo>(GetArena());
+    _impl_.denseinfo_ = reinterpret_cast<::DenseInfo*>(p);
+  }
+  return _impl_.denseinfo_;
+}
+inline ::DenseInfo* DenseNodes::mutable_denseinfo() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::DenseInfo* _msg = _internal_mutable_denseinfo();
+  // @@protoc_insertion_point(field_mutable:DenseNodes.denseinfo)
+  return _msg;
+}
+inline void DenseNodes::set_allocated_denseinfo(::DenseInfo* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::DenseInfo*>(_impl_.denseinfo_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::DenseInfo*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.denseinfo_ = reinterpret_cast<::DenseInfo*>(value);
+  // @@protoc_insertion_point(field_set_allocated:DenseNodes.denseinfo)
+}
+
+// repeated sint64 lat = 8 [packed = true];
+inline int DenseNodes::_internal_lat_size() const {
+  return _internal_lat().size();
+}
+inline int DenseNodes::lat_size() const {
+  return _internal_lat_size();
+}
+inline void DenseNodes::clear_lat() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lat_.Clear();
+}
+inline ::int64_t DenseNodes::lat(int index) const {
+  // @@protoc_insertion_point(field_get:DenseNodes.lat)
+  return _internal_lat().Get(index);
+}
+inline void DenseNodes::set_lat(int index, ::int64_t value) {
+  _internal_mutable_lat()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseNodes.lat)
+}
+inline void DenseNodes::add_lat(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_lat()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseNodes.lat)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::lat() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseNodes.lat)
+  return _internal_lat();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::mutable_lat()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseNodes.lat)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_lat();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::_internal_lat()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lat_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::_internal_mutable_lat() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.lat_;
+}
+
+// repeated sint64 lon = 9 [packed = true];
+inline int DenseNodes::_internal_lon_size() const {
+  return _internal_lon().size();
+}
+inline int DenseNodes::lon_size() const {
+  return _internal_lon_size();
+}
+inline void DenseNodes::clear_lon() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.lon_.Clear();
+}
+inline ::int64_t DenseNodes::lon(int index) const {
+  // @@protoc_insertion_point(field_get:DenseNodes.lon)
+  return _internal_lon().Get(index);
+}
+inline void DenseNodes::set_lon(int index, ::int64_t value) {
+  _internal_mutable_lon()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseNodes.lon)
+}
+inline void DenseNodes::add_lon(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_lon()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseNodes.lon)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::lon() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseNodes.lon)
+  return _internal_lon();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::mutable_lon()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseNodes.lon)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_lon();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseNodes::_internal_lon()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.lon_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseNodes::_internal_mutable_lon() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.lon_;
+}
+
+// repeated int32 keys_vals = 10 [packed = true];
+inline int DenseNodes::_internal_keys_vals_size() const {
+  return _internal_keys_vals().size();
+}
+inline int DenseNodes::keys_vals_size() const {
+  return _internal_keys_vals_size();
+}
+inline void DenseNodes::clear_keys_vals() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.keys_vals_.Clear();
+}
+inline ::int32_t DenseNodes::keys_vals(int index) const {
+  // @@protoc_insertion_point(field_get:DenseNodes.keys_vals)
+  return _internal_keys_vals().Get(index);
+}
+inline void DenseNodes::set_keys_vals(int index, ::int32_t value) {
+  _internal_mutable_keys_vals()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseNodes.keys_vals)
+}
+inline void DenseNodes::add_keys_vals(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_keys_vals()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseNodes.keys_vals)
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseNodes::keys_vals() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseNodes.keys_vals)
+  return _internal_keys_vals();
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseNodes::mutable_keys_vals()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseNodes.keys_vals)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_keys_vals();
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseNodes::_internal_keys_vals()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.keys_vals_;
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseNodes::_internal_mutable_keys_vals() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.keys_vals_;
+}
+
+// -------------------------------------------------------------------
+
+// DenseInfo
+
+// repeated int32 version = 1 [packed = true];
+inline int DenseInfo::_internal_version_size() const {
+  return _internal_version().size();
+}
+inline int DenseInfo::version_size() const {
+  return _internal_version_size();
+}
+inline void DenseInfo::clear_version() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.version_.Clear();
+}
+inline ::int32_t DenseInfo::version(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.version)
+  return _internal_version().Get(index);
+}
+inline void DenseInfo::set_version(int index, ::int32_t value) {
+  _internal_mutable_version()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.version)
+}
+inline void DenseInfo::add_version(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_version()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.version)
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::version() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.version)
+  return _internal_version();
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::mutable_version()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.version)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_version();
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::_internal_version()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.version_;
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::_internal_mutable_version() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.version_;
+}
+
+// repeated sint64 timestamp = 2 [packed = true];
+inline int DenseInfo::_internal_timestamp_size() const {
+  return _internal_timestamp().size();
+}
+inline int DenseInfo::timestamp_size() const {
+  return _internal_timestamp_size();
+}
+inline void DenseInfo::clear_timestamp() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.timestamp_.Clear();
+}
+inline ::int64_t DenseInfo::timestamp(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.timestamp)
+  return _internal_timestamp().Get(index);
+}
+inline void DenseInfo::set_timestamp(int index, ::int64_t value) {
+  _internal_mutable_timestamp()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.timestamp)
+}
+inline void DenseInfo::add_timestamp(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_timestamp()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.timestamp)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseInfo::timestamp() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.timestamp)
+  return _internal_timestamp();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseInfo::mutable_timestamp()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.timestamp)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_timestamp();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseInfo::_internal_timestamp()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.timestamp_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseInfo::_internal_mutable_timestamp() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.timestamp_;
+}
+
+// repeated sint64 changeset = 3 [packed = true];
+inline int DenseInfo::_internal_changeset_size() const {
+  return _internal_changeset().size();
+}
+inline int DenseInfo::changeset_size() const {
+  return _internal_changeset_size();
+}
+inline void DenseInfo::clear_changeset() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.changeset_.Clear();
+}
+inline ::int64_t DenseInfo::changeset(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.changeset)
+  return _internal_changeset().Get(index);
+}
+inline void DenseInfo::set_changeset(int index, ::int64_t value) {
+  _internal_mutable_changeset()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.changeset)
+}
+inline void DenseInfo::add_changeset(::int64_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_changeset()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.changeset)
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseInfo::changeset() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.changeset)
+  return _internal_changeset();
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseInfo::mutable_changeset()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.changeset)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_changeset();
+}
+inline const ::google::protobuf::RepeatedField<::int64_t>& DenseInfo::_internal_changeset()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.changeset_;
+}
+inline ::google::protobuf::RepeatedField<::int64_t>* DenseInfo::_internal_mutable_changeset() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.changeset_;
+}
+
+// repeated sint32 uid = 4 [packed = true];
+inline int DenseInfo::_internal_uid_size() const {
+  return _internal_uid().size();
+}
+inline int DenseInfo::uid_size() const {
+  return _internal_uid_size();
+}
+inline void DenseInfo::clear_uid() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.uid_.Clear();
+}
+inline ::int32_t DenseInfo::uid(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.uid)
+  return _internal_uid().Get(index);
+}
+inline void DenseInfo::set_uid(int index, ::int32_t value) {
+  _internal_mutable_uid()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.uid)
+}
+inline void DenseInfo::add_uid(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_uid()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.uid)
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::uid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.uid)
+  return _internal_uid();
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::mutable_uid()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.uid)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_uid();
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::_internal_uid()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.uid_;
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::_internal_mutable_uid() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.uid_;
+}
+
+// repeated sint32 user_sid = 5 [packed = true];
+inline int DenseInfo::_internal_user_sid_size() const {
+  return _internal_user_sid().size();
+}
+inline int DenseInfo::user_sid_size() const {
+  return _internal_user_sid_size();
+}
+inline void DenseInfo::clear_user_sid() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.user_sid_.Clear();
+}
+inline ::int32_t DenseInfo::user_sid(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.user_sid)
+  return _internal_user_sid().Get(index);
+}
+inline void DenseInfo::set_user_sid(int index, ::int32_t value) {
+  _internal_mutable_user_sid()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.user_sid)
+}
+inline void DenseInfo::add_user_sid(::int32_t value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_user_sid()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.user_sid)
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::user_sid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.user_sid)
+  return _internal_user_sid();
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::mutable_user_sid()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.user_sid)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_user_sid();
+}
+inline const ::google::protobuf::RepeatedField<::int32_t>& DenseInfo::_internal_user_sid()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.user_sid_;
+}
+inline ::google::protobuf::RepeatedField<::int32_t>* DenseInfo::_internal_mutable_user_sid() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.user_sid_;
+}
+
+// repeated bool visible = 6 [packed = true];
+inline int DenseInfo::_internal_visible_size() const {
+  return _internal_visible().size();
+}
+inline int DenseInfo::visible_size() const {
+  return _internal_visible_size();
+}
+inline void DenseInfo::clear_visible() {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _impl_.visible_.Clear();
+}
+inline bool DenseInfo::visible(int index) const {
+  // @@protoc_insertion_point(field_get:DenseInfo.visible)
+  return _internal_visible().Get(index);
+}
+inline void DenseInfo::set_visible(int index, bool value) {
+  _internal_mutable_visible()->Set(index, value);
+  // @@protoc_insertion_point(field_set:DenseInfo.visible)
+}
+inline void DenseInfo::add_visible(bool value) {
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  _internal_mutable_visible()->Add(value);
+  // @@protoc_insertion_point(field_add:DenseInfo.visible)
+}
+inline const ::google::protobuf::RepeatedField<bool>& DenseInfo::visible() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:DenseInfo.visible)
+  return _internal_visible();
+}
+inline ::google::protobuf::RepeatedField<bool>* DenseInfo::mutable_visible()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:DenseInfo.visible)
+  PROTOBUF_TSAN_WRITE(&_impl_._tsan_detect_race);
+  return _internal_mutable_visible();
+}
+inline const ::google::protobuf::RepeatedField<bool>& DenseInfo::_internal_visible()
+    const {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return _impl_.visible_;
+}
+inline ::google::protobuf::RepeatedField<bool>* DenseInfo::_internal_mutable_visible() {
+  PROTOBUF_TSAN_READ(&_impl_._tsan_detect_race);
+  return &_impl_.visible_;
+}
+
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
 
 // @@protoc_insertion_point(namespace_scope)
 
+
+namespace google {
+namespace protobuf {
+
+template <>
+struct is_proto_enum<::Relation_MemberType> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::Relation_MemberType>() {
+  return ::Relation_MemberType_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 
