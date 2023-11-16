@@ -1,5 +1,7 @@
-#include <iostream>
+#include <array>
 #include <fstream>
+#include <iostream>
+#include <unordered_map>
 #include <vector>
 #include "generated/fileformat.pb.h"
 #include "generated/osmformat.pb.h"
@@ -10,11 +12,12 @@ const int blobHeaderLength = 4;
 const int32_t defaultGranularity = 100;
 const int64_t defaultLatOffset = 0;
 const int64_t defaultLonOffset = 0;
-//const int32_t defaultDateGranularity = 1000;
+
+const std::array<std::string, 6> allowedKeys = {"name", "surface", "place", "population", "description", "elevation"};
 
 using kv_vector = std::vector<int32_t>;
 using string_vector = std::vector<std::string>;
-
+using kv_map = std::unordered_map<std::string, std::string>;
 
 BlobHeader getBlobHeader(std::ifstream &file) {
     // Read the first 4 bytes of the file, this value is the size of the blob header
@@ -41,7 +44,8 @@ kv_vector keysValsAsVector(const DenseNodes &dense) {
     return keysVals;
 }
 
-std::vector<kv_vector> splitKeysVals(kv_vector in) {
+
+std::vector<kv_vector> splitKeysVals(const kv_vector &in) {
     std::vector<kv_vector> result;
     kv_vector current;
     for (const auto &kv: in) {
@@ -55,27 +59,32 @@ std::vector<kv_vector> splitKeysVals(kv_vector in) {
     return result;
 }
 
-void parseNode(const Node &node) {
-
+kv_map generateKeysValsMap(const kv_vector &keysvals, const string_vector &strings) {
+    kv_map map;
+    size_t i = 0;
+    while (i < keysvals.size()) {
+        auto const &key = strings.at(keysvals.at(i));
+        auto const &val = strings.at(keysvals.at(i + 1));
+        if (std::includes(allowedKeys.begin(), allowedKeys.end(), &key, &key + 1)) {
+            std::cout << key << "=" << val << "\n";
+            map[key] = val;
+        } else {
+//            std::cout << "skipping key: " << key << "=" << val << "\n";
+        }
+        i += 2;
+    }
+    return map;
 }
 
 void parse(std::ifstream &file) {
-    bool done = false;
     size_t primitiveCount = 0;
 
-    while (!done) {
+    while (!file.eof()) {
         auto const &blobHeader = getBlobHeader(file);
         auto const &blobSize = blobHeader.datasize();
-//        std::cout << "blob header type: " << blobHeader.type() << "\n";
-        //    std::cout << "blob header datasize: " << blobSize << "\n";
 
         auto const &blob = getProtoBlockFromStream<Blob>(file, blobSize);
-//    std::cout << "blob raw size: " << blob.raw_size() << "\n";
-//    std::cout << "has raw?: " << presentBool(blob.has_raw()) << "\n";
-//    std::cout << "has zlib?: " << presentBool(blob.has_zlib_data()) << "\n";
-
         auto data = blob.has_zlib_data() ? uncompress_zlib(blob.zlib_data()) : blob.raw();
-//    std::cout << "data size: " << data.size() << "\n";
 
         if (blob.raw_size() != data.size()) {
             throw (std::runtime_error("Blob raw size does not match data size."));
@@ -101,16 +110,11 @@ void parse(std::ifstream &file) {
         } else { // blobHeader.type() == "OSMData"
             auto const &block = getProtoBlockFromString<PrimitiveBlock>(data);
             primitiveCount++;
-//            std::cout << "granularity: " << primitiveBlock.date_granularity() << "\n";
-//            std::cout << "lat_offset: " << primitiveBlock.lat_offset() << "\n";
-//            std::cout << "lon_offset: " << primitiveBlock.lon_offset() << "\n";
-//            std::cout << "has stringtable: " << primitiveBlock.has_stringtable() << "\n";
 
             auto const granularity = block.has_granularity() ? block.granularity() : defaultGranularity;
             auto const latOffset = block.has_lat_offset() ? block.lat_offset() : defaultLatOffset;
             auto const lonOffset = block.has_lon_offset() ? block.lon_offset() : defaultLonOffset;
-//            auto const dateGranularity = block.has_date_granularity() ? block.date_granularity()
-//                                                                      : defaultDateGranularity;
+
             auto const &strings = stringTableContents(block.has_stringtable() ? block.stringtable() : StringTable());
 
             auto latitude = [latOffset, granularity](int64_t lat) {
@@ -119,24 +123,13 @@ void parse(std::ifstream &file) {
             auto longitude = [lonOffset, granularity](int64_t lon) {
                 return .000000001 * (double) (lonOffset + (granularity * lon));
             };
-            auto addNode = [strings](uint64_t id, double lat, double lon, kv_vector keysvals) {
-//                std::cout << "adding node: " << id << ", " << lat << ", " << lon << "\n";
-
-                size_t i = 0;
-                while (i < keysvals.size()) {
-                    auto key = strings.at(keysvals.at(i));
-                    auto val = strings.at(keysvals.at(i + 1));
-                    std::cout << "key: " << key << ", val: " << val << "\n";
-                    i += 2;
-                }
+            auto addNode = [strings](uint64_t id, double lat, double lon, const kv_map &keysvals) {
             };
-            auto parseDenseNodes = [latitude, longitude, addNode](const DenseNodes &dense) {
-                //    std::cout << "parsing dense nodes" << "\n";
-                auto const &allKeysVals = keysValsAsVector(dense);
+            auto parseDenseNodes = [latitude, longitude, addNode, strings](const DenseNodes &dense) {
                 auto const &ids = dense.id();
                 auto const &lats = dense.lat();
                 auto const &lons = dense.lon();
-                auto const &keysvals = splitKeysVals(allKeysVals);
+                auto const &keysvals = splitKeysVals(keysValsAsVector(dense));
                 std::cout << "keysvals: " << keysvals.size() << "\n";
                 int64_t id = 0, lat = 0, lon = 0;
                 if (ids.size() != lats.size() || ids.size() != lons.size()) {
@@ -147,16 +140,13 @@ void parse(std::ifstream &file) {
                     id += ids[i];
                     lat += lats[i];
                     lon += lons[i];
-//                    std::cout << "id: " << id << ", lat: " << lat << ", lon: " << lon << "\n";
-                    addNode(id, latitude(lat), longitude(lon), keysvals.at(i));
+                    auto const &kvMap = generateKeysValsMap(keysvals.at(i), strings);
+                    addNode(id, latitude(lat), longitude(lon), kvMap);
                 }
             };
-//            std::cout << "strings: " << strings.size() << "\n";
-//            std::cout << "primitive groups in block: " << block.primitivegroup_size() << "\n";
 
             for (auto const &group: block.primitivegroup()) {
-                auto const &nodes = group.nodes();
-
+//                auto const &nodes = group.nodes();
 //                for (auto const &node: nodes) {
 //                    addNode(node.id(), latitude(node.lat()), longitude(node.lon()));
 //                }
@@ -165,10 +155,7 @@ void parse(std::ifstream &file) {
                     parseDenseNodes(group.dense());
                 }
             }
-
-//            std::cout << "primitive blocks read: " << primitiveCount << "\n";
         }
-
-        std::cout << std::endl; // flush stdout
+        std::cout << std::endl;
     }
 }
