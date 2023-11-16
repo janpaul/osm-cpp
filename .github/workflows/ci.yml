@@ -20,7 +20,6 @@ jobs:
       - name: Set up CMake
         uses: aminya/setup-cpp@v1
         with:
-          cpp-version: '23'
           compiler: ${{ matrix.compiler }}
           cmake: true
           ninja: true
