@@ -1,4 +1,5 @@
 #include <array>
+#include <cassert>
 #include <fstream>
 #include <iostream>
 #include <unordered_map>
@@ -125,34 +126,36 @@ void parse(std::ifstream &file) {
             };
             auto addNode = [strings](uint64_t id, double lat, double lon, const kv_map &keysvals) {
             };
-            auto parseDenseNodes = [latitude, longitude, addNode, strings](const DenseNodes &dense) {
-                auto const &ids = dense.id();
-                auto const &lats = dense.lat();
-                auto const &lons = dense.lon();
-                auto const &keysvals = splitKeysVals(keysValsAsVector(dense));
-                std::cout << "keysvals: " << keysvals.size() << "\n";
-                int64_t id = 0, lat = 0, lon = 0;
-                if (ids.size() != lats.size() || ids.size() != lons.size()) {
-                    throw (std::runtime_error("amount of ids, lats and lons do not match."));
-                }
-
-                for (int i = 0; i < ids.size(); i++) {
-                    id += ids[i];
-                    lat += lats[i];
-                    lon += lons[i];
-                    auto const &kvMap = generateKeysValsMap(keysvals.at(i), strings);
-                    addNode(id, latitude(lat), longitude(lon), kvMap);
-                }
-            };
 
             for (auto const &group: block.primitivegroup()) {
-//                auto const &nodes = group.nodes();
-//                for (auto const &node: nodes) {
-//                    addNode(node.id(), latitude(node.lat()), longitude(node.lon()));
-//                }
+                auto const &nodes = group.nodes();
+                for (auto const &node: nodes) {
+                    kv_vector keysvals;
+                    for (auto i = 0; i < node.keys_size(); i++) {
+                        keysvals.push_back((int32_t) node.keys(i));
+                        keysvals.push_back((int32_t) node.vals(i + 1));
+                    }
+                    auto const kvMap = generateKeysValsMap(keysvals, strings);
+                    addNode(node.id(), latitude(node.lat()), longitude(node.lon()), kvMap);
+                }
 
                 if (group.has_dense()) { // probably always true
-                    parseDenseNodes(group.dense());
+                    auto const &dense = group.dense();
+                    auto const &ids = dense.id();
+                    auto const &lats = dense.lat();
+                    auto const &lons = dense.lon();
+                    auto const &keysvals = splitKeysVals(keysValsAsVector(dense));
+                    std::cout << "keysvals: " << keysvals.size() << "\n";
+                    int64_t id = 0, lat = 0, lon = 0;
+                    assert(ids.size() == lats.size() || ids.size() == lons.size() || ids.size() == keysvals.size());
+
+                    for (int i = 0; i < ids.size(); i++) {
+                        id += ids[i];
+                        lat += lats[i];
+                        lon += lons[i];
+                        auto const &kvMap = generateKeysValsMap(keysvals.at(i), strings);
+                        addNode(id, latitude(lat), longitude(lon), kvMap);
+                    }
                 }
             }
         }
