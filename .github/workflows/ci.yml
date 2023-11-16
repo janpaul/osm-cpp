@@ -1,0 +1,26 @@
+name: Building osm-cpp
+run-name: osm-cpp is building 🚀
+on: [ push ]
+jobs:
+  Build-The-Project:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          #          - ubuntu-22.04
+          - macos-12
+        compiler:
+          - llvm
+    #          - gcc
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Set up CMake
+        uses: actions/setup-cpp@v2
+        with:
+          cpp-version: '23'
+          compiler: ${{ matrix.compiler }}
+          cmake: true
+          ninja: true
