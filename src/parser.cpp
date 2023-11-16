@@ -15,23 +15,6 @@ const int64_t defaultLonOffset = 0;
 using kv_vector = std::vector<int32_t>;
 using string_vector = std::vector<std::string>;
 
-template<typename T>
-T getProtoBlockFromStream(std::ifstream &file, std::streamsize size) {
-    char buffer[size];
-    file.read(buffer, size);
-    T data;
-    data.ParseFromArray(buffer, size);
-    return data;
-}
-
-template<typename T>
-T getProtoBlockFromString(std::string &str) {
-    auto size = str.size();
-    T data;
-    data.ParseFromString(str.substr(0, size));
-    return data;
-}
-
 
 BlobHeader getBlobHeader(std::ifstream &file) {
     // Read the first 4 bytes of the file, this value is the size of the blob header
